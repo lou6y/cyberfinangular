@@ -60,9 +60,10 @@ export class UserComponent implements OnInit {
     this.userservice.addUser(user).subscribe( () => { this.getAllUsers(); this.form = false; } );
   }
 
-  editUser(user: User)
+  editUser(idUser: any, user: User)
   {
-    this.userservice.editUser(user).subscribe();
+    this.userservice.editUser(idUser, user).subscribe();
+    window.location.reload();
   }
 
   deleteUser(id: any)
