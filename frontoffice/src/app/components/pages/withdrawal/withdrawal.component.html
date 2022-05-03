@@ -1,1 +1,45 @@
-<p>withdrawal works!</p>
+<div class="page-title-area">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="page-title-text">
+                    <h2>Transfer Money</h2>
+                    <ul>
+                        <li><a routerLink="/">Home</a></li>
+                        <li><i class="icofont-simple-right"></i></li>
+                        <li>Transfer Money</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="create-information">
+    <aside id="transferForm" class="panel">
+
+        <form>
+
+
+            <div class="row" class="col-md-6">
+                <label>Transfer From</label>
+                <input name ="account_id" type="number" required   placeholder="account id" [(ngModel)]="account_id"  >
+                <!--  -->
+            </div>
+
+            <div class="row" class="col-md-6">
+                <label>Amount To Transfer</label>
+                <input name ="amount" type="number" required   placeholder="amount"[(ngModel)]="amount"  >
+                <!--  -->
+
+            </div>
+
+
+
+
+            <button class="btn btn-success"  type="submit" (click)="withrawal()" >done</button>
+        </form>
+
+    </aside>
+</div>
+

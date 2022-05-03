@@ -1,1 +1,80 @@
-<p>payment works!</p>
+<div class="page-title-area">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="page-title-text">
+                    <h2>DEPOSIT</h2>
+                    <ul>
+                        <li><a routerLink="/">Home</a></li>
+                        <li><i class="icofont-simple-right"></i></li>
+                        <li>Job List</li>
+                    </ul>
+                </div>
+            </div><div class="page-title-area">
+            <div class="d-table">
+                <div class="d-table-cell">
+                    <div class="container">
+                        <div class="page-title-text">
+                            <h2>Transfer Money</h2>
+                            <ul>
+                                <li><a routerLink="/">Home</a></li>
+                                <li><i class="icofont-simple-right"></i></li>
+                                <li>Transfer Money</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <div class="create-information">
+                <aside id="transferForm" class="panel">
+
+                    <form>
+
+
+                        <div class="row" class="col-md-6">
+                            <label>Beneficiary</label>
+                            <input name ="beneficiary" type="text" required   placeholder="Beneficiary" [(ngModel)]="beneficiary"  >
+                            <!--  -->
+                        </div>
+
+                        <div class="row" class="col-md-6">
+                            <label>Beneficiary Account number</label>
+                            <input name ="amount" type="number" required   placeholder="account number"[(ngModel)]="account_number"  >
+                            <!--  -->
+
+                        </div>
+                        <div class="row" class="col-md-6">
+                            <label>Your Account id</label>
+                            <input name ="account_id" type="number" required   placeholder="account id"[(ngModel)]="account_id"  >
+                            <!--  -->
+
+                        </div>
+                        <div class="row" class="col-md-6">
+                            <label>Reference</label>
+                            <input name ="reference" type="text" required   placeholder="reference"[(ngModel)]="reference"  >
+                            <!--  -->
+
+                        </div>
+                        <div class="row" class="col-md-6">
+                            <label>Amount</label>
+                            <input name ="amount" type="number" required   placeholder="amount"[(ngModel)]="payment_amount"  >
+                            <!--  -->
+
+                        </div>
+
+
+
+
+                        <button class="btn btn-success"  type="submit" (click)="paybills()" >done</button>
+                    </form>
+
+                </aside>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+

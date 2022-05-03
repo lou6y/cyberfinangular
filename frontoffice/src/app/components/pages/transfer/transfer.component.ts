@@ -26,6 +26,8 @@ export class TransferComponent implements OnInit {
     fromAccount: any ;
     toAccount: any ;
     account_id:any;
+    amount:any;
+
 
     transaction_type = 'Transfer';
     source = 'online';
@@ -119,7 +121,12 @@ export class TransferComponent implements OnInit {
         this.transactionService.sendMoneyAction({openModal: true, transactionObject: this.transferForm.value, });
     }
 
-    change(){
+    transferMoney(){
+
+        this.transactionService.transferMoney(this.account_id,this.amount,this.toAccount).subscribe(res => {
+            console.log("done"+res);
+
+        });
 
     }
 
