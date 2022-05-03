@@ -56,6 +56,14 @@ const routes: Routes = [
         path: 'general',
         loadChildren: () => import('./views/pages/general/general.module').then(m => m.GeneralModule)
       },
+      {
+        path: 'claim',
+        loadChildren: () => import('./views/pages/claim/claim.module').then(m => m.ClaimModule)
+      },
+      {
+        path: 'transaction',
+        loadChildren: () => import('./views/pages/transaction/transaction.module').then(m => m.TransactionModule)
+      },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       // { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
     ]

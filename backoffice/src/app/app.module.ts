@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,11 +8,22 @@ import { AuthGuard } from './core/guard/auth.guard';
 
 import { AppComponent } from './app.component';
 import { ErrorPageComponent } from './views/pages/error-page/error-page.component';
+import { NgModule } from '@angular/core';
 
 import { HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import {HttpClientModule} from "@angular/common/http";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import { TransactionComponent } from './views/pages/transaction/transaction.component';
+import {RouterModule, Routes} from '@angular/router';
+import {FormsModule} from "@angular/forms";
 
+
+const routes: Routes = [
+  {
+    path: 'transaction',
+    component: TransactionComponent,
+  }
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,10 +31,12 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
   ],
   imports: [
     BrowserModule,
+    RouterModule.forChild(routes),
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
     HttpClientModule,
+    FormsModule,
     NgbModule,
   ],
   providers: [

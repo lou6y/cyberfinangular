@@ -37,6 +37,11 @@ import { ContactComponent } from './components/pages/contact/contact.component';
 import { BlogDetailsComponent } from './components/pages/blog-details/blog-details.component';
 import { BlogComponent } from './components/pages/blog/blog.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import {DepositComponent} from "./components/pages/deposit/deposit.component";
+import {WithdrawalComponent} from "./components/pages/withdrawal/withdrawal.component";
+import {PaymentComponent} from "./components/pages/payment/payment.component";
+import {TransferComponent} from "./components/pages/transfer/transfer.component";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -71,13 +76,19 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     PrivacyPolicyComponent,
     ContactComponent,
     BlogDetailsComponent,
-    BlogComponent
+    BlogComponent,
+
+      DepositComponent,
+      WithdrawalComponent,
+      PaymentComponent,
+      TransferComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
       FormsModule,
-      HttpClientModule
+      HttpClientModule,
+      NgbModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
