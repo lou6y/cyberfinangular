@@ -33,7 +33,58 @@
               </td>
               <td><button type="button" class="btn btn-outline-primary"
                           (click)="open(mymodal)">Edit</button>
-                <ng-template #mymodal let-modal > ...
+                <ng-template #mymodal let-modal >
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">Edit</h4>
+                    <button type="button" class="close" aria-label="Close"
+                            (click)="modal.dismiss('Cross click')">
+                      <span aria-hidden="true" (click)="cancel()">×</span>
+
+                    </button>
+
+                  </div>
+                  <div>
+                    <form>
+                      <div class="modal-body">
+
+                        <div class="row" class="col-md-5">
+                          <label>Username</label>
+                          <input type="text" [(ngModel)]="user.username" [ngModelOptions]="{standalone : true}" />
+                        </div>
+                        <div class="row" class="col-md-5">
+                          <label>Name</label>
+                          <input type="text" [(ngModel)]="user.name" [ngModelOptions]="{standalone : true}" />
+                        </div>
+                        <div class="row" class="col-md-5">
+                          <label>Lastname</label>
+                          <input type="text" [(ngModel)]="user.lastname" [ngModelOptions]="{standalone : true}" />
+                        </div>
+                        <div class="row" class="col-md-5">
+                          <label>Email</label>
+                          <input type="email" [(ngModel)]="user.email" [ngModelOptions]="{standalone : true}" />
+                        </div>
+                        <div class="row" class="col-md-5">
+                          <label>Password</label>
+                          <input type="password" [(ngModel)]="user.password" [ngModelOptions]="{standalone : true}" />
+                        </div>
+                        <div class="row" class="col-md-5">
+                          <label>Birthday</label>
+                          <input type="date" [(ngModel)]="user.dateBirth" [ngModelOptions]="{standalone : true}" />
+                        </div>
+                        <div class="row" class="col-md-5">
+                          <label>Profile Picture</label>
+                          <input type="text" [(ngModel)]="user.ProfilePic" [ngModelOptions]="{standalone : true}" />
+                        </div>
+                      </div>
+
+                      <div class="modal-footer">
+
+                        <button type="button" class="btn btn-info"
+                                (click)="modal.close('Save click')" (click)="cancel()">Cancel</button>
+                        <button class="btn btn-success"(click)="editUser(user.id, user)" (click)="modal.close('Save click')">Validate</button>
+                      </div>
+                    </form>
+                  </div>
                 </ng-template>
                 <button type="button" class="btn btn-outline-danger"
                         (click)="deleteUser (user.id)">Delete</button>
