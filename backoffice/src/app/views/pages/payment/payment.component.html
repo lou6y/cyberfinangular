@@ -1,0 +1,136 @@
+<div class="row">
+  <div class="row">
+
+
+    <! SEARCH -->
+
+    <div class="input-group">
+      <div class="input-group-text">
+        <i class="feather icon-search"></i>
+      </div>
+      <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
+    </div>
+
+    <div class="col-md-12">
+
+      <div >
+
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-baseline mb-2">
+              <h6 class="card-title mb-0">Payments List</h6>
+              <div ngbDropdown class="mb-2">
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table table-hover mb-0">
+                <thead>
+
+                <th class="pt-0" >account_id</th>
+                <th class="pt-0">beneficiary</th>
+                <th class="pt-0">beneficiary_acc_no</th>
+                <th class="pt-0">amount</th>
+                <th class="pt-0">reference</th>
+                <th class="pt-0">status</th>
+                <th class="pt-0">reason code</th>
+                <th class="pt-0">created at</th>
+                </thead>
+                <tbody>
+                <tr *ngFor='let p of listPayments| filter:term'>
+
+                  <td>{{p.account_id}} </td>
+                  <td>{{p.beneficiary}}</td>
+                  <td>{{p.beneficiary_acc_no}}</td>
+                  <td>{{p.amount}} </td>
+                  <td>{{p.reference_no}} </td>
+
+                  <div class="alert alert-danger" *ngIf="p.status==success">
+                    <td> <span class="badge bg-success"> {{p.status}} </span> </td></div>
+                  <div class="alert alert-danger" *ngIf="p.status==failed">
+                    <td> <span class="badge bg-danger"> {{p.status}} </span> </td></div>
+
+
+                  <td>{{p.reason_code}} </td>
+                  <td>{{p.created_at}} </td>
+                  <td><button type="button" class="btn btn-outline-primary"
+                              (click)="open(mymodal)">edit</button>
+                    <ng-template #mymodal let-modal>
+                      <div class="modal-header">
+                        <h4 class="modal-title" >Edit</h4>
+                        <button type="button" class="close" aria-label="Close"
+                                (click)="modal.dismiss('Cross click')">
+                          <span aria-hidden="true" (click)="cancel()">×</span>
+
+                        </button>
+
+                      </div>
+                      <div>
+                        <form >
+                          <div class="modal-body">
+
+
+                            <div class="row" class="col-md-5">
+                              <label>Account Id</label>
+                              <input type="number" ngModel [(ngModel)]="p.account_id" [ngModelOptions]="{standalone : true}" />
+                            </div>
+
+
+                            <div class="row" class="col-md-5">
+                              <label>Beneficiary</label>
+                              <input type="text" [(ngModel)]="p.beneficiary" [ngModelOptions]="{standalone : true}">
+
+                            </div>
+
+                            <div class="row" class="col-md-5">
+                              <label>beneficiary Account Number </label>
+                              <input type="number" [(ngModel)]="p.beneficiary_acc_no" [ngModelOptions]="{standalone : true}" />
+                            </div>
+
+                            <div class="row" class="col-md-5">
+                              <label>Amout Transfered</label>
+                              <input type="number" [(ngModel)]="p.amount" [ngModelOptions]="{standalone : true}" />
+                            </div>
+
+                            <div class="row" class="col-md-5">
+                              <label>Reference</label>
+                              <input type="text" [(ngModel)]="p.reference_no" [ngModelOptions]="{standalone : true}" />
+                            </div>
+
+                            <div class="row" class="col-md-5">
+                              <label>Reason Code</label>
+                              <input type="text" [(ngModel)]="p.reason_code" [disabled]="true" [ngModelOptions]="{standalone : true}" />
+                            </div>
+                            <div class="row" class="col-md-5">
+                              <label>Created At</label>
+                              <input type="text" [(ngModel)]="p.created_at" [ngModelOptions]="{standalone : true}" />
+                            </div>
+
+
+
+                          </div>
+
+                          <div class="modal-footer">
+
+                            <button type="button" class="btn btn-info" (click)="modal.close('Save click')" (click)="cancel()">Cancel</button>
+                            <button class="btn btn-success"(click)="editPayment(p)" (click)="modal.close('Save click')">Validate</button>
+                          </div>
+                        </form>
+                      </div>
+                    </ng-template>
+
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
