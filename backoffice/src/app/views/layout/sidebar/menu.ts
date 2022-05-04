@@ -34,7 +34,7 @@ export const MENU: MenuItem[] = [
   },
   {
     label: 'Payment',
-    icon: 'arrow-right-circle',
+    icon: 'credit-card',
 
     subItems: [
       {
