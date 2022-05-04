@@ -123,7 +123,7 @@ export class TransferComponent implements OnInit {
 
     transferMoney(){
 
-        this.transactionService.transferMoney(this.account_id,this.amount,this.toAccount).subscribe(res => {
+        this.transactionService.transferMoney(this.account_id,this.toAccount,this.amount).subscribe(res => {
             console.log("done"+res);
 
         });

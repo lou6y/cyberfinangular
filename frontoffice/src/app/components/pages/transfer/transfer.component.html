@@ -15,37 +15,39 @@
     </div>
 </div>
 
-<div class="create-information">
-<aside id="transferForm" class="panel">
 
-<form>
+<div class="contact-form-area ptb-100">
+    <div class="container-fluid">
+        <form id="contactForm">
+            <div class="row contact-wrap">
+                <div class="col-sm-6 col-lg-6">
+                    <div class="form-group">
+                        <input type="number" name="account_id" id="account_id" class="form-control" required placeholder="Account Id Transfering From" [(ngModel)]="account_id">
+
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-6">
+                    <div class="form-group">
+                        <input type="number" name="toAccount" id="toAccount"  class="form-control" required placeholder="Account Id Transfering To" [(ngModel)]="toAccount">
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-lg-12">
+                    <div class="form-group">
+                        <input name ="amount" id="amount" type="number" placeholder="Amount"  required class="form-control" placeholder="Amount To Transfer" [(ngModel)]="amount">
+                    </div>
+                </div>
 
 
-<div class="row" class="col-md-6">
-<label>Transfer From</label>
-    <input name ="account_id" type="number" required   placeholder="account_id"   [(ngModel)]="account_id" >
-    <!--  -->
-</div>
 
-    <div class="row" class="col-md-6">
-        <label>Amount To Transfer</label>
-        <input name ="amount" type="number" required   placeholder="amount"  [(ngModel)]="amount">
-        <!--  -->
-
+                <div class="col-md-12 col-lg-12">
+                    <div class="text-center">
+                        <button type="submit" class="btn contact-btn" (click)="transferMoney()" >Transfer</button>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
-
-    <div class="row" class="col-md-6">
-        <label>Transfer To</label>
-        <input name ="toAccount" type="number" required   placeholder="toAccount" [(ngModel)]="toAccount">
-        <!--  -->
-
-    </div>
-
-
-
-    <button class="btn btn-success"  type="submit" (click)="transferMoney()">transfer</button>
-    </form>
-
-</aside>
 </div>
 
