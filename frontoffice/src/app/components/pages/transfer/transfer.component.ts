@@ -3,7 +3,7 @@ import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { Transaction, transactionObject } from 'src/app/_models/transaction';
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 import {TransactionService} from "../../../_services/transaction.service";
-
+import{NgToastService} from "ng-angular-popup";
 
 
 @Component({
@@ -37,7 +37,7 @@ export class TransferComponent implements OnInit {
     transferForm: FormGroup;
     completeDate: Date;
 
-    constructor(private transactionService: TransactionService, private modalService: NgbModal){
+    constructor(private transactionService: TransactionService, private modalService: NgbModal, private toast: NgToastService){
 
         this.completeDate = new Date();
         this.created_at = this.completeDate.toISOString();
@@ -66,7 +66,11 @@ export class TransferComponent implements OnInit {
         this.transactionService.addTransaction(t).subscribe(() => {
             this.getTransactions();
             this.form = false;
-        });
+            this.toast.success({detail:"Success Message", summary:"Transfer Successful", duration:5000})
+
+        }, err=>{
+            this.toast.error({detail:"Error Message", summary:"Transfer Failed", duration:5000})
+        })
     }
 
     editTransaction(transaction: Transaction){
@@ -76,19 +80,6 @@ export class TransferComponent implements OnInit {
     deleteTransaction(transactionId: any){
         this.transactionService.deleteTransaction(transactionId).subscribe(() => this.getTransactions());
     }
-
-    getAccounts(){
-        this.transactionService.getAccounts().subscribe(res => this.listAccounts = res);
-    }
-
-    getAccountBalance(accountID: any){
-        this.transactionService.getAccountBalance(accountID).subscribe(res => this.accountBalance = res);
-    }
-
-    changeAccountBalanceById(newBalance: any , accountID: any){
-        this.transactionService.changeAccountBalanceById(newBalance, accountID).subscribe();
-    }
-
 
 
     private getDismissReason(reason: any): string {
@@ -122,12 +113,47 @@ export class TransferComponent implements OnInit {
     }
 
     transferMoney(){
+        if(this.account_id==null){
+            this.toast.error({detail:"Success", summary:"Please write your account id", duration:5000});
 
-        this.transactionService.transferMoney(this.account_id,this.toAccount,this.amount).subscribe(res => {
-            console.log("done"+res);
+        }else{
+            if(this.toAccount==null){
 
-        });
+                this.toast.error({detail:"Success", summary:"To account", duration:5000});
+
+            }else{
+                if(this.amount==null){
+
+                    this.toast.error({detail:"Success", summary:"Check the amout", duration:5000});
+                }else{
+                this.transactionService.transferMoney(this.account_id,this.toAccount,this.amount).subscribe((res: string) => {
+                    if(res.includes("Cannot Transfer Into The same Account, Please select the appropriate account to perform transfer")){
+
+                        this.toast.error({detail:"Success", summary:"Cannot Transfer Into The same Account, Please select the appropriate account to perform transfe", duration:5000});
+                    }
+                    if(res.includes("Cannot Transfer an amount of 0 , please enter a value greater than 0")){
+
+                        this.toast.error({detail:"Success", summary:"Cannot Transfer an amount of 0 , please enter a value greater than 0", duration:5000});
+                    }
+                    if(res.includes("You Have insufficient Funds to perform this Transfer!")){
+
+                        this.toast.error({detail:"Success", summary:"You Have insufficient Funds to perform this Transfer!", duration:5000});
+                    }
+
+
+                });
+                    this.toast.success({detail:"Success", summary:"Transfer done", duration:5000});
+            }}
+
+
+        }
+
+
+
+
 
     }
+           // this.toast.error({detail:"Error Message", summary:"Transfer Failed", duration:5000})
+
 
 }

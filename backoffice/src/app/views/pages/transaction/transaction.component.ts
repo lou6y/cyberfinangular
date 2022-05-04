@@ -3,6 +3,7 @@ import {Transaction} from "../../../shared/Model/transaction";
 import {TransactionService} from "../../../shared/Service/transaction.service";
 import {ModalDismissReasons, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {NgForm} from "@angular/forms";
+import {NgToastService} from "ng-angular-popup";
 
 @Component({
   selector: 'app-transaction',
@@ -26,7 +27,7 @@ export class TransactionComponent implements OnInit {
 
 
 
-  constructor(private transactionService: TransactionService, private modalService: NgbModal){}
+  constructor(private transactionService: TransactionService, private modalService: NgbModal, private toast: NgToastService){}
   ngOnInit(): void {
     this.getTransactions();
     this.transaction= {
@@ -57,16 +58,24 @@ export class TransactionComponent implements OnInit {
     this.transactionService.addTransaction(t).subscribe(()=> {
         this.getTransactions();
         this.form = false;
-      });
+        this.toast.success({detail:"Success Message", summary:"Transaction added Successfully", duration:5000})
+
+    }, err=>{
+      this.toast.error({detail:"Error Message", summary:"Transaction Failed", duration:5000})
+    })
     }
 
     editTransaction(transaction:Transaction){
       this.transactionService.editTransaction(transaction).subscribe();
-      }
+      this.toast.info({detail:"Success Message", summary:"Transaction edited Successfully", duration:5000})
+
+    }
 
     deleteTransaction(transactionId:any){
       this.transactionService.deleteTransaction(transactionId).subscribe(()=>this.getTransactions());
-      }
+      this.toast.warning({detail:"Success Message", summary:"Transaction deleted Successfully", duration:5000})
+
+    }
 
   open(content: any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {

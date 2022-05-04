@@ -4,6 +4,7 @@ import {Transaction} from "../../../shared/Model/transaction";
 import {PaymentService} from "../../../shared/Service/payment.service";
 import {ModalDismissReasons, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {NgForm} from "@angular/forms";
+import {NgToastService} from "ng-angular-popup";
 
 @Component({
   selector: 'app-payment',
@@ -25,7 +26,7 @@ export class PaymentComponent implements OnInit {
 
 
 
-  constructor(private paymentService: PaymentService, private modalService: NgbModal){}
+  constructor(private paymentService: PaymentService, private modalService: NgbModal,private toast:NgToastService){}
   ngOnInit(): void {
     this.getPayments();
 
@@ -38,6 +39,8 @@ export class PaymentComponent implements OnInit {
 
   editPayment(payment:Payment){
     this.paymentService.editPayment(payment).subscribe();
+    this.toast.info({detail:"Success Message", summary:"Payment edited Successfully", duration:5000})
+
   }
 
 

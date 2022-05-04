@@ -52,32 +52,24 @@ export class TransactionService{
         this.approveTransactionSubject.next(value)
     }
     transferMoney(transfer_from: any,transfer_to:any,transfer_amount:any) {
-        let body = new URLSearchParams();
-        let options = {
-            headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-        };
-        return this.http.post("http://localhost:8083/SpringMVC/transaction/transfer?transfer_from="+transfer_from+"&transfer_to="+transfer_to+"&transfer_amount="+transfer_amount,body.toString(),options);
+      /*bech ya9rali les retours de type string 5ater 93ad ytala3Li f err */
+         var body =[{}]  ;
+        return this.http.post("http://localhost:8083/SpringMVC/transaction/transfer?transfer_from="+transfer_from+"&transfer_to="+transfer_to+"&transfer_amount="+transfer_amount,body,{ responseType: 'text' });
     }
     withdraw(accountid: any,withdrawal_amount:any) {
-        let body = new URLSearchParams();
-        let options = {
-            headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-        };
-        return this.http.post("http://localhost:8083/SpringMVC/transaction/withdraw/"+accountid+"?withdrawal_amount="+withdrawal_amount,body.toString(),options);
+        var body =[{}]  ;
+
+        return this.http.post("http://localhost:8083/SpringMVC/transaction/withdraw/"+accountid+"?withdrawal_amount="+withdrawal_amount,body,{ responseType: 'text' });
     }
     deposit(accountid: any,deposit_amount:any) {
-        let body = new URLSearchParams();
-        let options = {
-            headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-        };
-        return this.http.post("http://localhost:8083/SpringMVC/transaction/deposit/"+accountid+"?deposit_amount="+deposit_amount,body.toString(),options);
+        var body =[{}]  ;
+
+        return this.http.post("http://localhost:8083/SpringMVC/transaction/deposit/"+accountid+"?deposit_amount="+deposit_amount,body.toString(),{ responseType: 'text' });
     }
     paybills(beneficiary: any,account_number:any,account_id:any,reference:any,payment_amount:any) {
-        let body = new URLSearchParams();
-        let options = {
-            headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-        };
-        return this.http.post("http://localhost:8083/SpringMVC/transaction/payment?beneficiary="+beneficiary+"&account_number="+account_number+"&account_id="+account_id+"&reference="+reference+"&payment_amount="+payment_amount,body.toString(),options);
+        var body =[{}]  ;
+
+        return this.http.post("http://localhost:8083/SpringMVC/transaction/payment?beneficiary="+beneficiary+"&account_number="+account_number+"&account_id="+account_id+"&reference="+reference+"&payment_amount="+payment_amount,body,{ responseType: 'text' });
   }
 
 

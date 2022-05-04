@@ -5,6 +5,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 import {ModalDismissReasons, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {NgForm} from "@angular/forms";
 import {Transaction} from "../../../shared/Model/transaction";
+import {NgToastService} from "ng-angular-popup";
 
 @Component({
   selector: 'app-claim',
@@ -26,7 +27,7 @@ export class ClaimComponent implements OnInit {
 
 
 
-  constructor(private claimService: ClaimService, private modalService: NgbModal){}
+  constructor(private claimService: ClaimService, private modalService: NgbModal, private toast:NgToastService){}
   ngOnInit(): void {
     this.getClaims();
     this.transaction_type=[
@@ -51,10 +52,14 @@ export class ClaimComponent implements OnInit {
 
   editClaim(claim:Claim){
     this.claimService.editClaim(claim).subscribe();
+    this.toast.info({detail:"Success Message", summary:"Claim edited Successfully", duration:5000})
+
   }
 
   deleteClaim(claimId:any){
     this.claimService.deleteClaim(claimId).subscribe(()=>this.getClaims());
+    this.toast.warning({detail:"Success Message", summary:"Claim deleted Successfully", duration:5000})
+
   }
 
   open(content: any) {

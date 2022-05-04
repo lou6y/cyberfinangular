@@ -42,6 +42,7 @@ import {WithdrawalComponent} from "./components/pages/withdrawal/withdrawal.comp
 import {PaymentComponent} from "./components/pages/payment/payment.component";
 import {TransferComponent} from "./components/pages/transfer/transfer.component";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgToastModule} from "ng-angular-popup";
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
       FormsModule,
       HttpClientModule,
-      NgbModule
+      NgbModule,
+      NgToastModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
