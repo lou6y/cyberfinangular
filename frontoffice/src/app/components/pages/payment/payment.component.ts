@@ -33,7 +33,7 @@ export class PaymentComponent implements OnInit {
                 this.toast.error({detail:"Success", summary:"You Have insufficient Funds to perform this payment", duration:5000});
             }
             if(res.includes("Payment Processed Successfully")){
-  
+
                 this.toast.success({detail:"Success", summary:"Payment Processed Successfully", duration:5000});
             }
 
