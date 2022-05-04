@@ -21,11 +21,11 @@ export class WithdrawalComponent implements OnInit {
         this.transactionService.withdraw(this.account_id,this.amount).subscribe(res => {
             if(res.includes("Withdrawal Amount Cannot be of 0 (Zero) value, please enter a value greater than 0 (Zero)")){
 
-                this.toast.error({detail:"Success", summary:"Withdrawal Amount Cannot be of 0 (Zero) value, please enter a value greater than 0 (Zero)", duration:5000});
+                this.toast.info({detail:"Info", summary:"please enter a value greater than 0 ", duration:5000});
             }
             if(res.includes("You Have insufficient Funds to perform this Withdrawal!")){
 
-                this.toast.error({detail:"Success", summary:"You Have insufficient Funds to perform this Withdrawal!", duration:5000});
+                this.toast.warning({detail:"Error", summary:"You Have insufficient Funds!", duration:5000});
             }
             if(res.includes("withdrawal successful")){
 

@@ -26,11 +26,11 @@ export class PaymentComponent implements OnInit {
         this.transactionService.paybills(this.beneficiary, this.account_number, this.account_id, this.reference, this.payment_amount).subscribe(res => {
             if(res.includes("Payment Amount Cannot be of 0 value, please enter a value greater than 0")){
 
-                this.toast.error({detail:"Success", summary:"Payment Amount Cannot be of 0 value, please enter a value greater than 0", duration:5000});
+                this.toast.info({detail:"Info", summary:"Please enter a value greater than 0", duration:5000});
             }
             if(res.includes("You Have insufficient Funds to perform this payment")){
 
-                this.toast.error({detail:"Success", summary:"You Have insufficient Funds to perform this payment", duration:5000});
+                this.toast.warning({detail:"Warning", summary:"You Have insufficient Funds to perform this payment", duration:5000});
             }
             if(res.includes("Payment Processed Successfully")){
 
