@@ -20,7 +20,8 @@
       <div class="row" class="col-md-5">
         <select
           [(ngModel)]="transaction.transaction_type" [ngModelOptions]="{standalone : true}">
-          <option type="text" *ngFor="let transaction of transaction_type" [value]="transaction.transaction_type" > {{transaction.transaction_type}}
+          <option type="text" *ngFor="let transaction of transaction_type" [value]="transaction.transaction_type" >
+            {{transaction.transaction_type}}
         </select>
       </div>
 
@@ -60,4 +61,4 @@
   </div>
 </ng-template>
 
-
+</div>

@@ -30,7 +30,25 @@ export class AddTransactionComponent implements OnInit {
    // this.triggerClick();
     // @ts-ignore
     document.getElementById('addbuttontransaction').click();
+    this.transaction= {
 
+      transaction_id:null,
+
+      account_id:null,
+      transaction_type:null,
+      amount:null,
+      source:null,
+      status:null,
+      reason_code:null,
+      created_at:null,
+    }
+    this.transaction_type=[
+      {transaction_type:"Transfer"},
+      {transaction_type:"deposit"},
+      {transaction_type:"Withdrawal"},
+      {transaction_type:"Payment"}
+
+    ]
 
   //  open("mymodal1");
   }
