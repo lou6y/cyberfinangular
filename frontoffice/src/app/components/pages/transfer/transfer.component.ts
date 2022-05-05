@@ -114,12 +114,12 @@ export class TransferComponent implements OnInit {
 
     transferMoney(){
         if(this.account_id==null){
-            this.toast.error({detail:"Success", summary:"Please write your account id", duration:5000});
+            this.toast.error({detail:"Success", summary:"Please write your Account Id", duration:5000});
 
         }else{
             if(this.toAccount==null){
 
-                this.toast.error({detail:"Success", summary:"To account", duration:5000});
+                this.toast.error({detail:"Error", summary:"Account Id you're transfering to is missing", duration:5000});
 
             }else{
                 if(this.amount==null){
@@ -129,15 +129,15 @@ export class TransferComponent implements OnInit {
                 this.transactionService.transferMoney(this.account_id,this.toAccount,this.amount).subscribe((res: string) => {
                     if(res.includes("Cannot Transfer Into The same Account, Please select the appropriate account to perform transfer")){
 
-                        this.toast.error({detail:"Success", summary:"Cannot Transfer Into The same Account, Please select the appropriate account to perform transfe", duration:5000});
+                        this.toast.warning({detail:"Warning", summary:"Cannot Transfer Into The same Account", duration:5000});
                     }
                     if(res.includes("Cannot Transfer an amount of 0 , please enter a value greater than 0")){
 
-                        this.toast.error({detail:"Success", summary:"Cannot Transfer an amount of 0 , please enter a value greater than 0", duration:5000});
+                        this.toast.info({detail:"Info", summary:"Please enter a value greater than 0", duration:5000});
                     }
                     if(res.includes("You Have insufficient Funds to perform this Transfer!")){
 
-                        this.toast.error({detail:"Success", summary:"You Have insufficient Funds to perform this Transfer!", duration:5000});
+                        this.toast.error({detail:"Error", summary:"You Have insufficient Funds!", duration:5000});
                     }
 
 

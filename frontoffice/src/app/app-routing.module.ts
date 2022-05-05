@@ -67,6 +67,7 @@ const routes: Routes = [
     {path: 'payment', component: PaymentComponent},
     {path: 'withdrawal', component: WithdrawalComponent},
 
+
     // Here add new pages component
 
     {path: '**', component: ErrorComponent} // This line will remain down from the whole pages component list

@@ -26,7 +26,7 @@ export class DepositComponent implements OnInit {
 
             if(res.includes("deposit amount cannot be 0, please enter a value greater than 0")){
 
-                this.toast.error({detail:"Success", summary:"deposit amount cannot be 0, please enter a value greater than 0", duration:5000});
+                this.toast.info({detail:"Info", summary:"please enter a value greater than 0", duration:5000});
             }
             if(res.includes("deposit successful")){
 
