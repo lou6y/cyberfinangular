@@ -82,7 +82,7 @@ import {NgToastModule} from "ng-angular-popup";
       DepositComponent,
       WithdrawalComponent,
       PaymentComponent,
-      TransferComponent
+      TransferComponent,
   ],
   imports: [
     BrowserModule,

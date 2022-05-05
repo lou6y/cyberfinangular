@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Subject } from 'rxjs';
 import {CashFLowModel, transactionObject} from "../_models/transaction";
 
+
 @Injectable({
   providedIn:'root'
 })
@@ -71,6 +72,8 @@ export class TransactionService{
 
         return this.http.post("http://localhost:8083/SpringMVC/transaction/payment?beneficiary="+beneficiary+"&account_number="+account_number+"&account_id="+account_id+"&reference="+reference+"&payment_amount="+payment_amount,body,{ responseType: 'text' });
   }
+
+
 
 
 

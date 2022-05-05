@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {TransactionService} from "../../../_services/transaction.service";
 import { NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {NgToastService} from "ng-angular-popup";
+
+
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.scss']
 })
 export class PaymentComponent implements OnInit {
-    paymentHandler:any= null
+    @ViewChild('paypal',{static:true}) paypalElement:ElementRef;
 
     constructor(private transactionService: TransactionService, private modalService: NgbModal, private toast: NgToastService) {
     }
@@ -18,6 +20,8 @@ export class PaymentComponent implements OnInit {
     account_id: any;
     reference: any;
     payment_amount: any;
+
+
 
     paybills() {
         console.log("account id " + this.beneficiary);
@@ -42,45 +46,48 @@ export class PaymentComponent implements OnInit {
     }
 
     ngOnInit(): void {
-     //   this.invokeStripe();
-    }
-/*
-    makePayment(amount: number) {
 
-        const paymentHandler =(<any>window).StripeCheckout.configure({
-            key:'pk_test_51KlocMCp2sukYHxnv3dIbK1EnHH53b7L8PavW19KaYMSyoqwjdxwrhQ8v5fBHY0yxBIxK958RXiMLf3S2Vw0cUcb00jQe003Ts',
-            locale:'auto',
-            token:function(stripeToken:any){
-                console.log(stripeToken)
+        window.paypal.Buttons(
+            {
+                style: {
+                    layout: 'horizontal',
+                    color: 'blue',
+
+                },
+                createOrder: (data, actions) => {
+                    return actions.order.create({
+                        purchase_units:  [
+                            {
+                                amount:{
+
+                                    value: '1000',
+                                    currency_code: 'USD',
+                                }
+                            }
+                        ]
+                    })
+                },
+                onApprouve: (data, actions)=>
+                {
+                    return actions.order.capture().then(details => {
+                        this.toast.success({detail: "Success Message", summary: "Payment Successful", duration: 5000});
+                    })
+                },
+                onError : error =>{
+                    console.log(error);
+                }
             }
-        });
-
-        paymentHandler.open({
-            amount:amount*100
-        })
+        ).render(this.paypalElement.nativeElement);
 
     }
 
-    invokeStripe() {
-        if (!window.document.getElementById('stripe-script')) {
-            const script = window.document.createElement('script');
-            script.id = 'stripe-script';
-            script.type = 'text/javascript';
- //library stripe
-            script.src = 'https://checkout.stripe.com/checkout.js';
-            script.onload = () => {
-                this.paymentHandler = (<any>window).StripeCheckout.configure({
-                    key: 'pk_test_51KlocMCp2sukYHxnv3dIbK1EnHH53b7L8PavW19KaYMSyoqwjdxwrhQ8v5fBHY0yxBIxK958RXiMLf3S2Vw0cUcb00jQe003Ts',
-                    locale: 'auto',
-                    token: function (stripeToken: any) {
-                        console.log(stripeToken);
-                    },
-                });
-            };
 
-            window.document.body.appendChild(script);
-        }
-    }
 
- */
+
+
+
+
+
+
+
 }

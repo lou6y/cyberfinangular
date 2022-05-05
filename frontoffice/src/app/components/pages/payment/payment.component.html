@@ -15,6 +15,7 @@
     </div>
 </div>
 
+
 <div class="contact-form-area ptb-100">
     <div class="container-fluid">
         <form id="contactForm">
@@ -54,11 +55,24 @@
 
                     <div class="col-md-12 col-lg-12">
                         <div class="text-center">
-                            <button type="submit" class="btn contact-btn" (click)="paybills()">Pay</button>
+                            <button type="submit" class="btn contact-btn" (click)="paybills()" >Pay</button>
                             <!--  (click)="makePayment(10)" -->
                         </div>
                     </div>
+                <br>
+
+                <div class="col-md-12 col-lg-12">
+                    <div class="text-center">
+                        <br>
+                        <br>
+                <div #paypal></div>
+
+                    </div>
+
+                </div>
+
                 </div>
         </form>
     </div>
 </div>
+
