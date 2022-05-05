@@ -31,7 +31,7 @@ export class AddTransactionComponent implements OnInit {
     // @ts-ignore
     document.getElementById('addbuttontransaction').click();
     this.transaction= {
-
+ 
       transaction_id:null,
 
       account_id:null,
