@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { BaseComponent } from './views/layout/base/base.component';
 import { AuthGuard } from './core/guard/auth.guard';
 import { ErrorPageComponent } from './views/pages/error-page/error-page.component';
+import {AddTransactionModule} from "./views/pages/addtransaction/add-transaction.module";
 
 
 const routes: Routes = [
@@ -63,6 +64,10 @@ const routes: Routes = [
       {
         path: 'transaction',
         loadChildren: () => import('./views/pages/transaction/transaction.module').then(m => m.TransactionModule)
+      },
+      {
+        path: 'addtransaction',
+        loadChildren: () => import('./views/pages/addtransaction/add-transaction.module').then(m => m.AddTransactionModule)
       },
       {
         path: 'payment',

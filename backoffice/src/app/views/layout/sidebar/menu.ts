@@ -53,6 +53,12 @@ export const MENU: MenuItem[] = [
         label: 'Retrieve Transactions',
         link: '/transaction',
 
+      },{
+        label: 'Add new transaction',
+        link: '/addtransaction',
+
+
+
       }
     ]
   },

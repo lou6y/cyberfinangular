@@ -1,0 +1,63 @@
+<div class="col-md-12">
+  <br>
+  <button #myButton id ="addbuttontransaction" class="btn btn-round btn-sm btn-success" style="display: none" (click)="open(mymodal1)">Add new Transaction</button>
+  <br><br>
+<ng-template #mymodal1 let-modal1>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title" >Add new Transaction</h4>
+    <button type="button"  class="close" aria-label="Close" (click)="modal1.dismiss('Cross click')">
+      <span aria-hidden="true" (click)="cancel()">×</span>
+    </button>
+
+  </div>
+  <div class="container">
+    <form #f="ngForm" (ngSubmit)="addTransaction(transaction)">
+      <div class="row" class="col-md-6">
+        <input  name ="account_id" type="number" required  ngModel #a="ngModel" placeholder="Account Id" [(ngModel)]="transaction.account_id" >
+      </div>
+      <div class="alert alert-danger" *ngIf="a.invalid && a.touched">the account id is a required field </div>
+
+      <div class="row" class="col-md-5">
+        <select
+          [(ngModel)]="transaction.transaction_type" [ngModelOptions]="{standalone : true}">
+          <option type="text" *ngFor="let transaction of transaction_type" [value]="transaction.transaction_type" > {{transaction.transaction_type}}
+        </select>
+      </div>
+
+      <div class="row" class="col-md-6">
+        <input name ="amount" type="number" required  ngModel #am="ngModel" placeholder="Amount"[(ngModel)]="transaction.amount">
+      </div>
+      <div class="alert alert-danger" *ngIf="am.invalid && am.touched">amount is a required field </div>
+
+      <div class="row" class="col-md-6">
+        <input name ="source" type="text" required  ngModel #s="ngModel" placeholder="Source"[(ngModel)]="transaction.source">
+      </div>
+      <div class="alert alert-danger" *ngIf="s.invalid && s.touched">source is a required field </div>
+
+      <div class="row" class="col-md-6">
+        <input name ="status" type="text" required  ngModel #st="ngModel" placeholder="Status"[(ngModel)]="transaction.status">
+      </div>
+      <div class="alert alert-danger" *ngIf="st.invalid && st.touched">status is a required field </div>
+
+      <div class="row" class="col-md-6">
+        <input name ="reason_code" type="text" required  ngModel #rc="ngModel" placeholder="reason_code"[(ngModel)]="transaction.reason_code">
+      </div>
+      <div class="alert alert-danger" *ngIf="rc.invalid && rc.touched">the reason code is a required field </div>
+
+
+      <div class="row" class="col-md-6">
+        <input name ="created_at" type="text" required  ngModel #ca="ngModel" type="datetime-local" placeholder="created at"[(ngModel)]="transaction.created_at">
+      </div>
+      <div class="alert alert-danger" *ngIf="ca.invalid && ca.touched">created at is a required field </div>
+
+
+
+
+      <br>
+      <button type="submit" class="btn btn-success" [disabled]="f.invalid" (click)="modal1.close('Save click')" >Add</button>
+      <button type="button" class="btn btn-info" (click)="modal1.close('Save click')" >Cancel</button>
+    </form>
+  </div>
+</ng-template>
+
+
