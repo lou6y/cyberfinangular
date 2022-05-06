@@ -27,7 +27,9 @@ export class TransactionComponent implements OnInit {
 
 
 
-  constructor(private transactionService: TransactionService, private modalService: NgbModal, private toast: NgToastService){}
+  constructor(private transactionService: TransactionService, private modalService: NgbModal, private toast: NgToastService){
+
+  }
   ngOnInit(): void {
     this.getTransactions();
     this.transaction= {

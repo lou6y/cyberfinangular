@@ -33,6 +33,18 @@ export const MENU: MenuItem[] = [
     ]
   },
   {
+    label: 'Treasury',
+    icon: 'gift',
+
+    subItems: [
+      {
+        label: 'Check Treasury',
+        link: '/treasury',
+
+      }
+    ]
+  },
+  {
     label: 'Payment',
     icon: 'credit-card',
 
