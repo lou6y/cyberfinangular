@@ -13,7 +13,7 @@
 
     <div class="col-md-12">
       <br>
-      <button class="btn btn-round btn-sm btn-success" (click)="open(mymodal1)">Add new Transaction</button>
+      <button class="btn btn-round btn-sm btn-success" style="display: none" (click)="open(mymodal1)">Add new Transaction</button>
       <br><br>
 
       <ng-template #mymodal1 let-modal1>
@@ -70,6 +70,7 @@
             <br>
             <button type="submit" class="btn btn-success" [disabled]="f.invalid" (click)="modal1.close('Save click')" >Add</button>
             <button type="button" class="btn btn-info" (click)="modal1.close('Save click')" >Cancel</button>
+
           </form>
         </div>
       </ng-template>

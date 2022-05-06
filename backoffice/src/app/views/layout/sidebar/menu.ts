@@ -50,6 +50,18 @@ export const MENU: MenuItem[] = [
     ]
   },
   {
+    label: 'Treasury',
+    icon: 'gift',
+
+    subItems: [
+      {
+        label: 'Check Treasury',
+        link: '/treasury',
+
+      }
+    ]
+  },
+  {
     label: 'Payment',
     icon: 'credit-card',
 
@@ -70,6 +82,12 @@ export const MENU: MenuItem[] = [
         label: 'Retrieve Transactions',
         link: '/transaction',
 
+      },{
+        label: 'Add new transaction',
+        link: '/addtransaction',
+
+
+
       }
     ]
   },
@@ -81,6 +99,29 @@ export const MENU: MenuItem[] = [
       {
         label: 'Retrieve Claims',
         link: '/claim',
+
+      },
+    ]
+  },{
+    label: 'Offer',
+    icon: 'heart',
+
+    subItems: [
+      {
+        label: 'Retrieve Offers',
+        link: '/offer',
+
+      },
+    ]
+  },
+  {
+    label: 'Feedback',
+    icon: 'mail',
+
+    subItems: [
+      {
+        label: 'Retrieve Feedbacks',
+        link: '/feedback',
 
       },
     ]

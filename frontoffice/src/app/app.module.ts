@@ -46,6 +46,7 @@ import {NgToastModule} from "ng-angular-popup";
 import {PaymentAssociationModule} from "./components/pages/payment-association/payment-association.module";
 import {AssociationModule} from "./components/pages/association/association.module";
 
+import { SorteratePipe } from './_services/sorterate.pipe';
 
 @NgModule({
   declarations: [
@@ -86,6 +87,8 @@ import {AssociationModule} from "./components/pages/association/association.modu
       WithdrawalComponent,
       PaymentComponent,
       TransferComponent,
+      SorteratePipe,
+
 
 
   ],
