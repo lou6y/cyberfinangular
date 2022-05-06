@@ -37,6 +37,10 @@ import { ContactComponent } from './components/pages/contact/contact.component';
 import { BlogDetailsComponent } from './components/pages/blog-details/blog-details.component';
 import { BlogComponent } from './components/pages/blog/blog.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import { EditprofileComponent } from './components/pages/editprofile/editprofile.component';
+import {SweetAlert2Module} from '@sweetalert2/ngx-sweetalert2';
+import { ForgotpasswordComponent } from './components/pages/forgotpassword/forgotpassword.component';
+import { ResetpasswordComponent } from './components/pages/resetpassword/resetpassword.component';
 
 @NgModule({
   declarations: [
@@ -71,13 +75,17 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     PrivacyPolicyComponent,
     ContactComponent,
     BlogDetailsComponent,
-    BlogComponent
+    BlogComponent,
+    EditprofileComponent,
+    ForgotpasswordComponent,
+    ResetpasswordComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
       FormsModule,
-      HttpClientModule
+      HttpClientModule,
+      SweetAlert2Module.forRoot(),
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

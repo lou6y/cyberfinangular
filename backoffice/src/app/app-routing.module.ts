@@ -13,7 +13,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {
-        path: 'user',
+        path: 'users',
         loadChildren: () => import('./views/usermodule/usermodule.module').then(m => m.UsermoduleModule)
       },
       {

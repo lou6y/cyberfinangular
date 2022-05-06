@@ -28,6 +28,9 @@ import { PrivacyPolicyComponent } from './components/pages/privacy-policy/privac
 import { BlogComponent } from './components/pages/blog/blog.component';
 import { BlogDetailsComponent } from './components/pages/blog-details/blog-details.component';
 import { ContactComponent } from './components/pages/contact/contact.component';
+import {EditprofileComponent} from './components/pages/editprofile/editprofile.component';
+import {ForgotpasswordComponent} from './components/pages/forgotpassword/forgotpassword.component';
+import {ResetpasswordComponent} from './components/pages/resetpassword/resetpassword.component';
 
 const routes: Routes = [
     {path: '', component: HomeOneComponent},
@@ -48,9 +51,12 @@ const routes: Routes = [
     {path: 'company-list', component: CompanyListComponent},
     {path: 'company-details', component: CompanyDetailsComponent},
     {path: 'login', component: LoginComponent},
+    {path: 'forgot-password', component: ForgotpasswordComponent},
+    {path: 'reset-password', component: ResetpasswordComponent},
     {path: 'create-account', component: CreateAccountComponent},
     {path: 'profile', component: ProfileComponent},
     {path: 'single-profile', component: SingleProfileComponent},
+    {path: 'editprofile', component: EditprofileComponent},
     {path: '404', component: ErrorComponent},
     {path: 'faq', component: FaqComponent},
     {path: 'terms-and-conditions', component: TermsAndConditionsComponent},
