@@ -1,0 +1,33 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div id="body">
+
+<div id="chat-circle" class="btn btn-raised">
+      <div id="chat-overlay"></div>
+      <!--<img src="/assets/img/loanImages/drib_blink_bot.gif" alt="Chatbot Image">-->
+      <i class="material-icons" >smart_toy</i>
+</div>
+
+<div class="chat-box">
+  <div class="chat-box-header">
+    CyberFin Assistant Bot
+    <span class="chat-box-toggle"><i class="material-icons">close</i></span>
+  </div>
+  <div class="chat-box-body">
+    <div class="chat-box-overlay">
+    </div>
+    <div class="chat-logs">
+
+    </div><!--chat-log -->
+  </div>
+  <div class="chat-input">
+    <form>
+      <input type="text" id="chat-input" placeholder="Send a message..."/>
+    <button type="submit" class="chat-submit" id="chat-submit" (click)="sendMessage()"><i class="material-icons">send</i></button>
+    </form>
+  </div>
+</div>
+
+
+
+
+</div>

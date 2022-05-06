@@ -1,0 +1,32 @@
+<div class="navbar-area fixed-top">
+
+  <div class="mobile-nav">
+      <a routerLink="/" class="logo"><img src="assets/img/logo.png" alt="Logo"></a>
+  </div>
+
+  <div class="main-nav">
+      <div class="container">
+          <nav class="navbar navbar-expand-md navbar-light">
+              <a class="navbar-brand" routerLink="/"><img src="assets/img/logo.png" alt="Logo" ></a>
+
+              <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a href="javascript:void(0)" class="nav-link dropdown-toggle">Loan <i class="icofont-simple-down"></i></a>
+                    <ul class="dropdown-menu">
+                      <li class="nav-item"><a routerLink="/requestLoan" class="nav-link" routerLinkActive="active"[routerLinkActiveOptions]="{exact: true}">Request a Loan</a></li>
+                      <li class="nav-item"><a routerLink="/LoanSimulator" class="nav-link" routerLinkActive="active"[routerLinkActiveOptions]="{exact: true}">Simulator</a></li>
+                      <li class="nav-item"><a routerLink="/MyLoanRequests" class="nav-link" routerLinkActive="active"[routerLinkActiveOptions]="{exact: true}">My Loan Request</a></li>
+                  </ul>
+
+                  </li>
+
+                </ul>
+
+              </div>
+          </nav>
+      </div>
+  </div>
+
+</div>

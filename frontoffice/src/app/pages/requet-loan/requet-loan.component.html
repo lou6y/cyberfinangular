@@ -1,0 +1,130 @@
+<div class="page-title-area requestloantitle">
+  <div class="d-table">
+      <div class="d-table-cell">
+          <div class="container">
+              <div class="page-title-text">
+                  <h2>Loan Request</h2>
+                  <ul>
+                      <li><a routerLink="/">CyberFin</a></li>
+                      <li><i class="icofont-simple-right"></i></li>
+                      <li>Loan Request</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="create-information">
+<form>
+  <h3 class="greentitle">Basic Information</h3>
+
+  <div class="row">
+
+    <div class="col-lg-6">
+      <div class="form-group">
+          <label>Email Adress</label>
+          <input type="email" class="form-control" aria-describedby="emailHelp" [(ngModel)]="loan.email"
+          [ngModelOptions]="{standalone : true}">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+  </div>
+
+      <div class="col-lg-6">
+          <div class="form-group">
+              <label>Amount</label>
+              <input type="number" class="form-control" aria-describedby="amountHelp" [(ngModel)]="loan.loanamount"
+              [ngModelOptions]="{standalone : true}">
+              <div id="amountHelp" class="form-text">Your Amount In DT.</div>
+          </div>
+      </div>
+
+      <div class="col-lg-12">
+        <div class="form-group">
+            <label>Reason</label>
+            <textarea id="your_message" class="form-control" rows="8" [(ngModel)]="loan.reason"[ngModelOptions]="{standalone : true}"></textarea>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="garantor" class="form-label"[(ngModel)]="loan.guarantor"
+        [ngModelOptions]="{standalone : true}">Guarantor</label>
+        <input class="form-control" type="file" id="garantor" name="garantor" accept="image/png">
+      </div>
+  </div>
+</form>
+</div>
+
+<div class="create-education">
+<div class="create-education-wrap">
+  <div class="create-education-left">
+      <h3 class="greentitle">Useful Informations</h3>
+  </div>
+</div>
+
+<form>
+  <div class="row">
+      <div class="col-lg-6">
+          <div class="form-group">
+              <label>Revolving Utilization Of Unsecured Lines</label>
+              <input type="number" class="form-control" [(ngModel)]="RUOUL"
+              [ngModelOptions]="{standalone : true}">
+          </div>
+      </div>
+
+      <div class="col-lg-6">
+          <div class="form-group">
+              <label>Age</label>
+              <input type="number" class="form-control" [(ngModel)]="Age"
+              [ngModelOptions]="{standalone : true}">
+          </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="form-group">
+            <label>Dept Ratio</label>
+            <input type="number" class="form-control" aria-describedby="deptRatioHelp" [(ngModel)]="deptratio"
+            [ngModelOptions]="{standalone : true}">
+            <div id="deptRatioHelp" class="form-text">Dept Ratio = (Monthly Loan Repayment + Rent) x 100 / Revenue</div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+          <div class="form-group">
+              <label>Monthly Income</label>
+              <input type="number" class="form-control" [(ngModel)]="monthlyIncome"
+              [ngModelOptions]="{standalone : true}">
+          </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="form-group">
+            <label>Number Of Open Credit Lines And Loans</label>
+            <input type="number" class="form-control" [(ngModel)]="NOOCLAL"
+            [ngModelOptions]="{standalone : true}">
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="form-group">
+            <label>Number Real Estate Loans Or Lines</label>
+            <input type="number" class="form-control" [(ngModel)]="NRELOL"
+            [ngModelOptions]="{standalone : true}">
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+          <div class="form-group">
+              <label>Number Of Dependents</label>
+              <input type="number" class="form-control" [(ngModel)]="NOD"
+              [ngModelOptions]="{standalone : true}">
+          </div>
+      </div>
+  </div>
+</form>
+<div class="create-information-btn">
+  <button type="submit" class="btn btn-success" (click)="addLoanWithScore(loan,RUOUL,Age,deptratio,monthlyIncome,NOOCLAL,NRELOL,NOD)" >Submit</button>
+</div>
+
+</div>
+

@@ -1,0 +1,91 @@
+<div class="page-title-area requestloantitle">
+  <div class="d-table">
+      <div class="d-table-cell">
+          <div class="container">
+              <div class="page-title-text">
+                  <h2 class="greentitle">Loan Simulator</h2>
+                  <ul>
+                      <li><a routerLink="/">CyberFin</a></li>
+                      <li><i class="icofont-simple-right"></i></li>
+                      <li>Loan Simulator</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="create-information">
+<div class="container">
+<div class="subscribe-area">
+  <!--<div class="section-title">
+      <h2>Subscribe Newsletter</h2>
+  </div>-->
+
+  <div class="subscribe-shape">
+      <img src="assets/img/shape/1.png" alt="Shape">
+      <img src="assets/img/shape/1.png" alt="Shape">
+      <img src="assets/img/shape/1.png" alt="Shape">
+      <img src="assets/img/shape/1.png" alt="Shape">
+      <img src="assets/img/shape/2.png" alt="Shape">
+  </div>
+
+  <div class="subscribe-item">
+      <form class="newsletter-form">
+        <div class="row">
+
+          <h3 class="result">{{result}}</h3>
+
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Amount</label>
+                    <input type="number" class="form-control" aria-describedby="amountHelp" [(ngModel)]="amount"
+                    [ngModelOptions]="{standalone : true}" >
+                    <div id="amountHelp" class="form-text">Your Amount In DT.</div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                  <label>Duration</label>
+                  <input type="number" class="form-control" aria-describedby="dutationHelp" [(ngModel)]="duration"
+                  [ngModelOptions]="{standalone : true}">
+                  <div id="dutationHelp" class="form-text"></div>
+              </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+                <label>Refund in: </label>
+                <div class="form-check">
+                  <input class="form-check-input greenradio" type="radio" value="1" name="flexRadioDefault" id="flexRadioDefault1" [(ngModel)]="rembour"
+                  [ngModelOptions]="{standalone : true}" >
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    Monthly
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input greenradio" type="radio" value="2" name="flexRadioDefault" id="flexRadioDefault2" [(ngModel)]="rembour"
+                  [ngModelOptions]="{standalone : true}">
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    Quarterly
+                  </label>
+                </div>
+                <!--<input type="number" class="form-control" aria-describedby="refundinHelp" [(ngModel)]="rembour"
+                [ngModelOptions]="{standalone : true}">
+                <div id="refundinHelp" class="form-text"></div>-->
+            </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group">
+              <label>Grace</label>
+              <input type="number" class="form-control" aria-describedby="refundinHelp" [(ngModel)]="grace"
+              [ngModelOptions]="{standalone : true}">
+              <div id="refundinHelp" class="form-text"></div>
+          </div>
+      </div>
+        </div>
+        <button class="btn subscribe-btn" type="submit" (click)="simulate(amount,duration,interest,grace,rembour)" >Simulate Now</button>
+      </form>
+  </div>
+</div>
+</div>
+</div>

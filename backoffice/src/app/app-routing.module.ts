@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { BaseComponent } from './views/layout/base/base.component';
 import { AuthGuard } from './core/guard/auth.guard';
 import { ErrorPageComponent } from './views/pages/error-page/error-page.component';
+import { LoanDashboardComponent } from './views/pages/loan-dashboard/loan-dashboard.component';
 
 
 const routes: Routes = [
@@ -12,10 +13,6 @@ const routes: Routes = [
     component: BaseComponent,
     canActivate: [AuthGuard],
     children: [
-      {
-        path: 'user',
-        loadChildren: () => import('./views/usermodule/usermodule.module').then(m => m.UsermoduleModule)
-      },
       {
         path: 'dashboard',
         loadChildren: () => import('./views/pages/dashboard/dashboard.module').then(m => m.DashboardModule)
@@ -56,27 +53,8 @@ const routes: Routes = [
         path: 'general',
         loadChildren: () => import('./views/pages/general/general.module').then(m => m.GeneralModule)
       },
-      {
-        path: 'claim',
-        loadChildren: () => import('./views/pages/claim/claim.module').then(m => m.ClaimModule)
-      },
-      {
-        path: 'transaction',
-        loadChildren: () => import('./views/pages/transaction/transaction.module').then(m => m.TransactionModule)
-      },
-      {
-        path: 'addtransaction',
-        loadChildren: () => import('./views/pages/addtransaction/add-transaction.module').then(m => m.AddTransactionModule)
-      },
-      {
-        path: 'payment',
-        loadChildren: () => import('./views/pages/payment/payment.module').then(m => m.PaymentModule)
-      },
-      {
-        path: 'treasury',
-        loadChildren: () => import('./views/pages/treasury/treasury.module').then(m => m.TreasuryModule)
-      },
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      {path: '', component:LoanDashboardComponent},
+      //{ path: '', redirectTo: 'loandashboard', pathMatch: 'full' },
       // { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   },

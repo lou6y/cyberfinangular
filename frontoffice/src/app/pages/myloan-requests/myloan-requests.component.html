@@ -1,0 +1,39 @@
+<div class="page-title-area requestloantitle">
+  <div class="d-table">
+      <div class="d-table-cell">
+          <div class="container">
+              <div class="page-title-text">
+                  <h2>My Loan Requests</h2>
+                  <ul>
+                      <li><a routerLink="/">CyberFin</a></li>
+                      <li><i class="icofont-simple-right"></i></li>
+                      <li>My Loan Requests</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="pricing-area pt-100">
+  <div class="container">
+      <div class="row" >
+          <div class="col-sm-6 col-lg-4" *ngFor='let l of ListLoan'>
+              <div class="pricing-item wow fadeInUp" data-wow-delay=".3s">
+                  <span>Ref#{{l.idloan}}</span>
+                  <h2>{{l.loanamount}} DT</h2>
+                  <p>{{l.requestdate}}</p>
+
+                  <ul>
+                      <li *ngIf="l.status == 0">In Progress</li>
+                      <li *ngIf="l.status == 1">Accepted</li>
+                      <li *ngIf="l.status == -1">Refused</li>
+
+                  </ul>
+
+                  <a class="pricing-btn" routerLink="/">Get Started</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

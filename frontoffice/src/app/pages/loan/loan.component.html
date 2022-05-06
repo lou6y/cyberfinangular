@@ -1,0 +1,177 @@
+
+<div class="page-title-area requestloantitle">
+  <div class="d-table">
+      <div class="d-table-cell">
+          <div class="container">
+              <div class="page-title-text">
+                  <h2 class="greentitle">Admin</h2>
+                  <ul>
+                      <li><a routerLink="/">CyberFin</a></li>
+                      <li><i class="icofont-simple-right"></i></li>
+                      <li>Admin</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <button class="btn btn-round btn-sm btn-success" (click)="open(mymodal1)">Add new Loan</button>
+        <br><br>
+        <ng-template #mymodal1 let-modal1>
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title" >Add new Loan</h4>
+                <button type="button" class="btn-close" aria-label="Close" (click)="modal1.dismiss('Cross click')">
+                    <span aria-hidden="true" (click)="cancel()"></span>
+                </button>
+
+            </div>
+            <div class="center">
+              <form>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="loan.email"
+                  [ngModelOptions]="{standalone : true}">
+                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="amount" class="form-label">Amount</label>
+                  <input type="number" class="form-control" id="amount" aria-describedby="amountHelp"[(ngModel)]="loan.loanamount"
+                  [ngModelOptions]="{standalone : true}">
+                  <div id="amountHelp" class="form-text">Your Amount In DT.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleFormControlTextarea1" class="form-label">Reason</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"[(ngModel)]="loan.reason"
+                  [ngModelOptions]="{standalone : true}"></textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="garantor" class="form-label">Guarantor</label>
+                  <input class="form-control" type="file" id="garantor" name="garantor" accept="image/png, image/jpeg"[(ngModel)]="loan.guarantor"
+                  [ngModelOptions]="{standalone : true}">
+                </div>
+                <div class="mb-3">
+                  <label for="age" class="form-label">Age</label>
+                  <input type="number" class="form-control" id="age" [(ngModel)]="loan.age"
+                  [ngModelOptions]="{standalone : true}">
+                </div>
+                <div class="mb-3">
+                  <label for="annualincome" class="form-label">Annual Income</label>
+                  <input type="number" class="form-control" id="annualincome" aria-describedby="annualincomeHelp"[(ngModel)]="loan.annualincom"
+                  [ngModelOptions]="{standalone : true}">
+                  <div id="annualincomeHelp" class="form-text">Your Annual Income In DT.</div>
+                </div>
+                <button type="submit" class="btn btn-success" (click)="addLoan(loan)" (click)="modal1.close('Save click')">Submit</button>
+              </form>
+        </div>
+        </ng-template>
+     <div class="card" class="text-center">
+         <table class="table table-striped">
+          <thead >
+            <tr>
+                 <th scope="col">ID</th>
+                 <th scope="col">User n°</th>
+                <th scope="col">Amount</th>
+                 <th scope="col">E-mail</th>
+                 <th scope="col">Reason</th>
+                 <th scope="col">Status</th>
+                 <th scope="col">Interst Rate</th>
+                 <th scope="col">Score</th>
+                 <th scope="col">Age</th>
+                 <th scope="col">Guarantor</th>
+                 <th scope="col">Annual Income</th>
+                 <th scope="col">Start Date</th>
+                 <th scope="col">Request Date</th>
+                 <th scope="col">Next Payment</th>
+                 <th scope="col">Actions</th>
+              </tr>
+
+             </thead>
+             <tbody>
+                <tr scope="row" *ngFor='let l of ListLoan'>
+                    <td>{{l.idloan}}</td>
+                    <td>{{l.iduser}}</td>
+                    <td>{{l.loanamount}} DT</td>
+                    <td>{{l.email}}</td>
+                    <td>{{l.reason}}</td>
+                    <td>{{l.status}}</td>
+                    <td>{{l.interstrate}}</td>
+                    <td>{{l.score}}</td>
+                    <td>{{l.age}}</td>
+                    <td>{{l.guarantor}}</td>
+                    <td>{{l.annualincom}}</td>
+                    <td>{{l.startdate}}</td>
+                    <td>{{l.requestdate}}</td>
+                    <td>{{l.nextpayment}}</td>
+
+                    <td><button type="button" class="btn btn-success btn-sm rounded-5 col-xs-2 margin-left" data-toggle="tooltip" data-placement="top" title=""
+                      data-original-title="Edit" (click)="open(mymodal)"><i class="fa fa-edit" ></i></button>
+                  <ng-template #mymodal let-modal>
+                      <div class="modal-header">
+                          <h4 class="modal-title" id="modal-basic-title">Edit</h4>
+                          <button type="button" class="close" aria-label="Close"
+                              (click)="modal.dismiss('Cross click')">
+                              <span aria-hidden="true" (click)="cancel()">×</span>
+
+                          </button>
+
+                      </div>
+                      <div>
+                        <form>
+                          <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="l.email"
+                            [ngModelOptions]="{standalone : true}">
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                          </div>
+                          <div class="mb-3">
+                            <label for="amount" class="form-label">Amount</label>
+                            <input type="number" class="form-control" id="amount" aria-describedby="amountHelp"[(ngModel)]="l.loanamount"
+                            [ngModelOptions]="{standalone : true}">
+                            <div id="amountHelp" class="form-text">Your Amount In DT.</div>
+                          </div>
+                          <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Reason</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"[(ngModel)]="l.reason"
+                            [ngModelOptions]="{standalone : true}"></textarea>
+                          </div>
+                          <div class="mb-3">
+                            <label for="garantor" class="form-label">Guarantor</label>
+                            <input class="form-control" type="file" id="garantor" name="garantor" accept="image/png, image/jpeg"[(ngModel)]="l.guarantor"
+                            [ngModelOptions]="{standalone : true}">
+                          </div>
+                          <div class="mb-3">
+                            <label for="age" class="form-label">Age</label>
+                            <input type="number" class="form-control" id="age" [(ngModel)]="l.age"
+                            [ngModelOptions]="{standalone : true}">
+                          </div>
+                          <div class="mb-3">
+                            <label for="annualincome" class="form-label">Annual Income</label>
+                            <input type="number" class="form-control" id="annualincome" aria-describedby="annualincomeHelp"[(ngModel)]="l.annualincom"
+                            [ngModelOptions]="{standalone : true}">
+                            <div id="annualincomeHelp" class="form-text">Your Annual Income In DT.</div>
+                          </div>
+                          <button type="submit" class="btn btn-success" (click)="modifyLoan(l)" (click)="modal.close('Save click')">Submit</button>
+                        </form>
+                  </div>
+                  </ng-template>
+                  <button type="button" class="btn btn-danger btn-sm rounded-5 col-xs-2 margin-left" type="button" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"
+                      (click)="deleteLoan(l.idloan)"><i class="fa fa-trash"></i></button>
+              </td>
+                 </tr>
+             </tbody>
+         </table>
+     </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
