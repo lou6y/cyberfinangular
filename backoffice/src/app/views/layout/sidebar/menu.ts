@@ -33,6 +33,23 @@ export const MENU: MenuItem[] = [
     ]
   },
   {
+    label: 'Association',
+    icon: 'credit-card',
+
+    subItems: [
+      {
+        label: 'table association',
+        link: '/association',
+
+      },
+      {
+        label: 'payments',
+        link: '/payment_association',
+
+      }
+    ]
+  },
+  {
     label: 'Payment',
     icon: 'credit-card',
 

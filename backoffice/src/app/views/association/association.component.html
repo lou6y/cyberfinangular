@@ -1,0 +1,154 @@
+<div class="row">
+  <div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+
+        <p class="text-muted mb-3"> <code> </code></p>
+
+
+          <table class="table table-bordered">
+      <br>
+      <button class="btn btn-round btn-sm btn-success" (click)="open(mymodal1)">Add new Association</button>
+      <br><br>
+
+      <ng-template #mymodal1 let-modal1>
+        <div class="modal-header">
+          <h4 class="modal-title" id="" >Add new Association</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal1.dismiss('Cross click')">
+            <span aria-hidden="true" (click)="cancel()">×</span>
+          </button>
+
+        </div>
+        <div class="container">
+          <form #f="ngForm" (ngSubmit)="addAssociation(a)">
+            <div class="row" class="col-md-6">
+              <input name ="account_id" type="number" required  ngModel #a="ngModel" placeholder="Account Id" [(ngModel)]="association.id_association" >
+            </div>
+            <div class="alert alert-danger" *ngIf="a.invalid && a.touched">the account id is a required field </div>
+
+
+            <div class="row" class="col-md-6">
+              <input name ="sum" type="number" required  ngModel #am="ngModel" placeholder="Sum"[(ngModel)]="association.sum">
+            </div>
+            <div class="alert alert-danger" *ngIf="am.invalid && am.touched">sum is a required field </div>
+
+            <input name ="sumtopay" type="number" required  ngModel #am="ngModel" placeholder="Sum"[(ngModel)]="association.sumToPay">
+          </form>
+        </div>
+        <div class="alert alert-danger" *ngIf="am.invalid && am.touched">sum to pay is a required field </div>
+
+        <div class="row" class="col-md-6">
+              <input name ="interest" type="text" required  ngModel #st="ngModel" placeholder="Status"[(ngModel)]="association.intrests">
+            </div>
+            <div class="alert alert-danger" *ngIf="st.invalid && st.touched">status is a required field </div>
+
+            <div class="row" class="col-md-6">
+              <input name ="description" type="text" required  ngModel #rc="ngModel" placeholder="reason_code"[(ngModel)]="association.description">
+            </div>
+            <div class="alert alert-danger" *ngIf="rc.invalid && rc.touched">the reason code is a required field </div>
+
+
+            <div class="row" class="col-md-6">
+              <input name ="created_at" type="text" required  ngModel #ca="ngModel" type="datetime-local" placeholder="created at"[(ngModel)]="association.creationDate">
+            </div>
+            <div class="alert alert-danger" *ngIf="ca.invalid && ca.touched">created at is a required field </div>
+
+
+            <br>
+            <button type="submit" class="btn btn-success" [disabled]="f.invalid" (click)="modal1.close('Save click')" >Add</button>
+            <button type="button" class="btn btn-info" (click)="modal1.close('Save click')" >Cancel</button>
+          </ng-template>
+          </table>>
+
+
+
+        <div class="row">
+          <div class="col-md-4 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body d-flex flex-column align-items-center">
+                <p class="text-muted mb-3">Basic Alert</p>
+
+                 Total intrest until now : {{count}}
+
+              </div>
+            </div>
+          </div>
+
+      <div class="row">
+        <div class="card" class="text-center">
+
+
+
+
+
+          <table class="table">
+            <thead style="background-color: rgb(192, 183, 183);">
+            <th>id association</th>
+            <th>description</th>
+            <th>sum</th>
+            <th>sum to gain</th>
+            <th>interest</th>
+            <th>creation date</th>
+
+            </thead>
+
+            <tbody>
+            <tr *ngFor='let a of listAssociation'>
+              <td>{{a.id_association}}</td>
+              <td>{{a.description}}</td>
+              <td>{{a.sum}}</td>
+              <td>{{a.sumToPay}}</td>
+              <td>{{a.intrests}}</td>
+              <td>{{a.creationDate}}</td>
+              <td><button type="button" class="btn btn-outline-primary"
+                          (click)="open(mymodal)">edit</button>
+                <ng-template #mymodal let-modal>
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">Edit</h4>
+                    <button type="button" class="close" aria-label="Close"
+                            (click)="modal.dismiss('Cross click')">
+                      <span aria-hidden="true" (click)="cancel()">×</span>
+
+                    </button>
+
+                  </div>
+                  <div>
+                    <form>
+                      <div class="modal-body">
+
+                        <div class="row" class="col-md-5">
+                          <label>Description</label>
+                          <input type="text" [(ngModel)]="a.description" [ngModelOptions]="{standalone : true}" />
+                        </div>
+                        <div class="row" class="col-md-5">
+                          <label>Sum</label>
+                          <input type="number" [(ngModel)]="a.sum" [ngModelOptions]="{standalone : true}" />
+                        </div>
+                        <div class="row" class="col-md-5">
+                          <label>Sum to pay</label>
+                          <input type="number" [(ngModel)]="a.sumToPay" [ngModelOptions]="{standalone : true}" />
+                        </div>
+                      </div>
+
+                      <div class="modal-footer">
+
+                        <button type="button" class="btn btn-info"
+                                (click)="modal.close('Save click')" (click)="cancel()">Cancel</button>
+                        <button class="btn btn-success"(click)="editAssociation(a)" (click)="modal.close('Save click')">Validate</button>
+                      </div>
+                    </form>
+                  </div>
+                </ng-template>
+                <button type="button" class="btn btn-outline-danger"
+                        (click)="deleteAssociation(a.id_association)">delete</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  </div>
+</div>
+  </div>
+</div>
+</div>

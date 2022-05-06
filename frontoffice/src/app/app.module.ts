@@ -43,6 +43,9 @@ import {PaymentComponent} from "./components/pages/payment/payment.component";
 import {TransferComponent} from "./components/pages/transfer/transfer.component";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {NgToastModule} from "ng-angular-popup";
+import {PaymentAssociationModule} from "./components/pages/payment-association/payment-association.module";
+import {AssociationModule} from "./components/pages/association/association.module";
+
 
 @NgModule({
   declarations: [
@@ -82,7 +85,9 @@ import {NgToastModule} from "ng-angular-popup";
       DepositComponent,
       WithdrawalComponent,
       PaymentComponent,
-      TransferComponent
+      TransferComponent,
+
+
   ],
   imports: [
     BrowserModule,
@@ -90,7 +95,9 @@ import {NgToastModule} from "ng-angular-popup";
       FormsModule,
       HttpClientModule,
       NgbModule,
-      NgToastModule
+      NgToastModule,
+      PaymentAssociationModule,
+      AssociationModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

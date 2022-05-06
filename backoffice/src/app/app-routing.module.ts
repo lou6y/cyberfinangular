@@ -68,6 +68,14 @@ const routes: Routes = [
         path: 'payment',
         loadChildren: () => import('./views/pages/payment/payment.module').then(m => m.PaymentModule)
       },
+      {
+        path: 'association',
+        loadChildren: () => import('./views/association/association.module').then(m=>m.AssociationModule)
+      },
+      {
+        path: 'payment_association',
+        loadChildren: () => import('./views/payment-association/payment-association.module').then(m=>m.PaymentAssociationModule)
+      },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       // { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
     ]

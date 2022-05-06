@@ -1,0 +1,156 @@
+<div class="row">
+  <div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+
+        <p class="text-muted mb-3"> <code> </code></p>
+
+
+        <table class="table table-bordered">
+          <br>
+          <button class="btn btn-round btn-sm btn-success" (click)="open(mymodal1)">Add new Payment</button>
+          <br><br>
+
+          <ng-template #mymodal1 let-modal1>
+            <div class="modal-header">
+              <h4 class="modal-title" id="" >Add new Payment</h4>
+              <button type="button" class="close" aria-label="Close" (click)="modal1.dismiss('Cross click')">
+                <span aria-hidden="true" (click)="cancel()">×</span>
+              </button>
+
+            </div>
+            <div class="container">
+              <form #f="ngForm" (ngSubmit)="addPayment(a)">
+                <div class="row" class="col-md-6">
+                  <input name ="account_id" type="number" required  ngModel #a="ngModel" placeholder="Account Id" [(ngModel)]="payment.idPayment" >
+                </div>
+                <div class="alert alert-danger" *ngIf="a.invalid && a.touched">the payment id is a required field </div>
+
+
+                <div class="row" class="col-md-6">
+                  <input name ="sum" type="number" required  ngModel #am="ngModel" placeholder="Sum"[(ngModel)]="payment.client">
+                </div>
+                <div class="alert alert-danger" *ngIf="am.invalid && am.touched">sum is a required field </div>
+
+
+            <br>
+            <button type="submit" class="btn btn-success" [disabled]="f.invalid" (click)="modal1.close('Save click')" >Add</button>
+            <button type="button" class="btn btn-info" (click)="modal1.close('Save click')" >Cancel</button>
+              </form>
+            </div>
+          </ng-template>
+        </table>>
+
+
+        <div class="row">
+          <div class="card" class="text-center">
+
+            <div class="alert alert-danger" *ngFor='let p of listSuseptible'>ID of Accounts in the alert zone : {{p}}</div>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="card" class="text-center">
+
+            <table class="table">
+              <thead style="background-color: rgb(192, 183, 183);">
+
+              <th>Non Payers </th>
+              </thead>
+              <tbody>
+              <tr *ngFor='let p of listNonPayment'>
+                <td>{{p}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+            <div class="row">
+              <div class="card" class="text-center">
+            <table class="table">
+              <thead style="background-color: rgb(192, 183, 183);">
+
+              <th>idPayment </th>
+              <th>payment Date</th>
+              <th>validPayment</th>
+              <th>client</th>
+              <th>association</th>
+              <th>status</th>
+
+              </thead>
+
+              <tbody>
+              <tr *ngFor='let p of listPayment'>
+                <td>{{p.idPayment}}</td>
+
+                <td>{{p.paymentDate}}</td>
+
+                <div class="alert alert-danger" *ngIf="p.validPayment==true">
+                  <td class="badge bg-success"> {{p.validPayment}} </td></div>
+                <div class="alert alert-danger" *ngIf="p.validPayment==false">
+                  <td class="badge bg-danger"> {{p.validPayment}}  </td></div>
+
+                <td>{{p.client}}</td>
+                <td>{{p.associationP}}</td>
+                <div class="alert alert-danger" *ngIf="p.status==true">
+                  <td class="badge bg-success"> {{p.status}}  </td></div>
+                <div class="alert alert-danger" *ngIf="p.status==false">
+                  <td class="badge bg-danger"> {{p.status}}  </td></div>
+
+
+
+
+
+                <td><button type="button" class="btn btn-outline-primary"
+                            (click)="open(mymodal)">edit</button>
+                  <ng-template #mymodal let-modal>
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="modal-basic-title">Edit</h4>
+                      <button type="button" class="close" aria-label="Close"
+                              (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true" (click)="cancel()">×</span>
+
+                      </button>
+
+                    </div>
+                    <div>
+                      <form>
+                        <div class="modal-body">
+
+                          <div class="row" class="col-md-5">
+                            <label>Description</label>
+                            <input type="text" [(ngModel)]="p.validPayment" [ngModelOptions]="{standalone : true}" />
+                          </div>
+                          <div class="row" class="col-md-5">
+                            <label>Sum</label>
+                            <input type="number" [(ngModel)]="p.status" [ngModelOptions]="{standalone : true}" />
+                          </div>
+                          <div class="row" class="col-md-5">
+                            <label>Sum to pay</label>
+                            <input type="number" [(ngModel)]="p.client" [ngModelOptions]="{standalone : true}" />
+                          </div>
+                        </div>
+
+                        <div class="modal-footer">
+
+                          <button type="button" class="btn btn-info"
+                                  (click)="modal.close('Save click')" (click)="cancel()">Cancel</button>
+                          <button class="btn btn-success"(click)="editPayment(p)" (click)="modal.close('Save click')">Validate</button>
+                        </div>
+                      </form>
+                    </div>
+                  </ng-template>
+                  <button type="button" class="btn btn-outline-danger"
+                          (click)="deletePayment(p.idPayment)">delete</button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

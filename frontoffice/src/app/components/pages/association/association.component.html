@@ -1,0 +1,41 @@
+<div class="page-title-area">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="page-title-text">
+                    <h2>Associations</h2>
+                    <ul>
+                        <li><a routerLink="/">Home</a></li>
+                        <li><i class="icofont-simple-right"></i></li>
+                        <li>Associations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pricing-area pt-100">
+    <div *ngFor='let p of listAssociation ' class="container" >
+        <div class="row">
+            <div class="col-sm-6 col-lg-4">
+                <div class="pricing-item wow fadeInUp" data-wow-delay=".3s">
+                    <span>Description: {{p.description}}</span>
+                    <h2>N°: {{p.id_association}}</h2>
+                    <p>Creation date :{{p.creationDate}}</p>
+
+                    <ul>
+                        <li>Sum to pay : {{p.sumToPay}}</li>
+                        <li>Sum to gain : {{p.sum}}</li>
+
+                        <li>Period (months) :{{p.nbMonths}}</li>
+                    </ul>
+
+                    <a class="pricing-btn" routerLink="/">Get Started</a>
+                </div>
+            </div>
+
+</div>
+    </div>
+</div>
+

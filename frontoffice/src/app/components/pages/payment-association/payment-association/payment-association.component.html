@@ -1,0 +1,42 @@
+<div class="page-title-area">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="page-title-text">
+                    <h2>association payment</h2>
+                    <ul>
+                        <li><a routerLink="/">Home</a></li>
+                        <li><i class="icofont-simple-right"></i></li>
+                        <li>Pricing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="job-area job-area-two pt-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-15"  *ngFor='let p of listPayment '>
+                <div class="job-item">
+                    <img src="assets/img/home-1/jobs/1.png" alt="Job">
+
+                    <div class="job-inner align-items-center">
+                        <div class="job-inner-left">
+
+                            <h3 *ngIf=' p.validPayment==true '> Already paid</h3>
+                            <h3 *ngIf=' p.validPayment==false '> Not paid</h3>
+                            <h6>{{p.paymentDate}}</h6>
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

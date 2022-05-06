@@ -32,6 +32,8 @@ import { WithdrawalComponent } from './components/pages/withdrawal/withdrawal.co
 import { TransferComponent } from './components/pages/transfer/transfer.component';
 import { DepositComponent } from './components/pages/deposit/deposit.component';
 import { PaymentComponent } from './components/pages/payment/payment.component';
+import {AssociationComponent} from "./components/pages/association/association.component";
+import {PaymentAssociationComponent} from "./components/pages/payment-association/payment-association/payment-association.component";
 
 const routes: Routes = [
     {path: '', component: HomeOneComponent},
@@ -65,6 +67,8 @@ const routes: Routes = [
     {path: 'transfer', component: TransferComponent},
     {path: 'deposit', component: DepositComponent},
     {path: 'payment', component: PaymentComponent},
+    {path: 'association', component: AssociationComponent},
+    {path: 'payment_association', component: PaymentAssociationComponent},
     {path: 'withdrawal', component: WithdrawalComponent},
 
     // Here add new pages component
