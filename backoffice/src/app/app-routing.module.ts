@@ -90,7 +90,7 @@ const routes: Routes = [
     {path : 'feedback',
     loadChildren: () => import('./views/pages/feddback/feddback.module').then(m => m.FeddbackModule)
   },
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: '', redirectTo: 'transaction', pathMatch: 'full' },
       // { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   },
