@@ -85,6 +85,29 @@ export const MENU: MenuItem[] = [
 
       },
     ]
+  },{
+    label: 'Offer',
+    icon: 'heart',
+
+    subItems: [
+      {
+        label: 'Retrieve Offers',
+        link: '/offer',
+
+      },
+    ]
+  },
+  {
+    label: 'Feedback',
+    icon: 'mail',
+
+    subItems: [
+      {
+        label: 'Retrieve Feedbacks',
+        link: '/feedback',
+
+      },
+    ]
   },
   {
     label: 'Chat',
