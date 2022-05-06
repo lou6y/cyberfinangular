@@ -31,7 +31,20 @@ export const MENU: MenuItem[] = [
         link: '/apps/email/compose'
       },
     ]
-  },{
+  },
+  {
+    label: 'Payment',
+    icon: 'credit-card',
+
+    subItems: [
+      {
+        label: 'Retrieve Payments',
+        link: '/payment',
+
+      }
+    ]
+  },
+  {
     label: 'Transaction',
     icon: 'arrow-right-circle',
 

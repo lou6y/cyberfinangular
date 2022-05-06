@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Subject } from 'rxjs';
 import {CashFLowModel, transactionObject} from "../_models/transaction";
 
@@ -51,7 +51,34 @@ export class TransactionService{
     approveTransaction(value : transactionObject){
         this.approveTransactionSubject.next(value)
     }
-
+    transferMoney(transfer_from: any,transfer_to:any,transfer_amount:any) {
+        let body = new URLSearchParams();
+        let options = {
+            headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+        };
+        return this.http.post("http://localhost:8083/SpringMVC/transaction/transfer?transfer_from="+transfer_from+"&transfer_to="+transfer_to+"&transfer_amount="+transfer_amount,body.toString(),options);
+    }
+    withdraw(accountid: any,withdrawal_amount:any) {
+        let body = new URLSearchParams();
+        let options = {
+            headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+        };
+        return this.http.post("http://localhost:8083/SpringMVC/transaction/withdraw/"+accountid+"?withdrawal_amount="+withdrawal_amount,body.toString(),options);
+    }
+    deposit(accountid: any,deposit_amount:any) {
+        let body = new URLSearchParams();
+        let options = {
+            headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+        };
+        return this.http.post("http://localhost:8083/SpringMVC/transaction/deposit/"+accountid+"?deposit_amount="+deposit_amount,body.toString(),options);
+    }
+    paybills(beneficiary: any,account_number:any,account_id:any,reference:any,payment_amount:any) {
+        let body = new URLSearchParams();
+        let options = {
+            headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+        };
+        return this.http.post("http://localhost:8083/SpringMVC/transaction/payment?beneficiary="+beneficiary+"&account_number="+account_number+"&account_id="+account_id+"&reference="+reference+"&payment_amount="+payment_amount,body.toString(),options);
+  }
 
 
 

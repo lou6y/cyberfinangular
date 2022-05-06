@@ -64,6 +64,16 @@ const routes: Routes = [
         path: 'transaction',
         loadChildren: () => import('./views/pages/transaction/transaction.module').then(m => m.TransactionModule)
       },
+      {
+        path: 'payment',
+        loadChildren: () => import('./views/pages/payment/payment.module').then(m => m.PaymentModule)
+      },
+      {path : 'offer',
+      loadChildren: () => import('./views/pages/offers/offers.module').then(m => m.OffersModule)
+    },
+    {path : 'feedback',
+    loadChildren: () => import('./views/pages/feddback/feddback.module').then(m => m.FeddbackModule)
+  },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       // { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
     ]

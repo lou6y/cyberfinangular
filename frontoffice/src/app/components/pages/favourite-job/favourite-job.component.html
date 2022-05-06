@@ -3,11 +3,11 @@
         <div class="d-table-cell">
             <div class="container">
                 <div class="page-title-text">
-                    <h2>Favourite Job</h2>
+                    <h2>Offer </h2>
                     <ul>
                         <li><a routerLink="/">Home</a></li>
                         <li><i class="icofont-simple-right"></i></li>
-                        <li>Favourite Job</li>
+                        <li>Favourite Offer</li>
                     </ul>
                 </div>
             </div>
@@ -18,100 +18,85 @@
 <section class="job-area job-area-two pt-100">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
+
+
+
+
+
+
+            <div class="col-lg-15"  *ngFor='let o of (listOffers | sorterate) '>
                 <div class="job-item">
                     <img src="assets/img/home-1/jobs/1.png" alt="Job">
 
                     <div class="job-inner align-items-center">
                         <div class="job-inner-left">
-                            <h3>UI/UX Designer</h3>
-                            <a routerLink="/company-details">Winbrans.com</a>
-                            <ul>
-                                <li><i class="icofont-money-bag"></i> $20k - $25k</li>
-                                <li><i class="icofont-location-pin"></i> Location 210-27 Quadra, Market Street, Victoria Canada</li>
-                            </ul>
+
+                            <h3>{{o.typeOffer}} </h3>
+                            <h6>{{o.description}}</h6>
+                             <h6>{{o.datedebut}}</h6>
+                            <h6> {{o.datefin}}</h6>
+                            <h6>Countuser : {{o.countUser}}</h6>
+                            <h6>Rate: {{o.ratingAvg}}</h6>
+
+                            <div class="rating"  >
+                                <div class="stars " >
+                                    <label [ngClass]="{'gold':o.ratingAvg >=1}"  class="fa fa-star   "  >☆</label>
+                                    <label [ngClass]="{'gold':o.ratingAvg >=2}" class="fa fa-star   "  >☆</label>
+                                    <label [ngClass]="{'gold':o.ratingAvg >=3}" class="fa fa-star  "  >☆</label>
+                                    <label [ngClass]="{'gold':o.ratingAvg >=4}" class="fa fa-star  "    >☆</label>
+                                    <label [ngClass]="{'gold':o.ratingAvg >=5}" class="fa fa-star  "    >☆</label>
+                                </div>
+
+                            </div>
+
+
                         </div>
 
-                        <div class="job-inner-right">
-                            <ul>
-                                <li><a routerLink="/create-account">Apply</a></li>
-                                <li><span>Full Time</span></li>
-                            </ul>
-                        </div>
+
                     </div>
                 </div>
             </div>
+            <div class="single-profile-skills">
+                <h3>Most Used Offers</h3>
 
-            <div class="col-lg-6">
-                <div class="job-item">
-                    <img src="assets/img/home-1/jobs/2.png" alt="Job">
+                <div class="skill">
+                    <p>Marhaba</p>
+                    <div class="skill-bar skill1 wow slideInLeft animated">
+                        <span class="skill-count1">{{Marhaba}}%</span>
+                    </div>
+                </div>
 
-                    <div class="job-inner align-items-center">
-                        <div class="job-inner-left">
-                            <h3>Android Developer</h3>
-                            <a routerLink="/company-details">Infiniza.com</a>
-                            <ul>
-                                <li><i class="icofont-money-bag"></i> $20k - $25k</li>
-                                <li><i class="icofont-location-pin"></i> Location 210-27 Quadra, Market Street, Victoria Canada</li>
-                            </ul>
-                        </div>
+                <div class="skill">
+                    <p>Mostakbal</p>
+                    <div class="skill-bar skill1 skill5   slideInLeft animated">
 
-                        <div class="job-inner-right">
-                            <ul>
-                                <li><a routerLink="/create-account">Apply</a></li>
-                                <li><span>Part Time</span></li>
-                            </ul>
-                        </div>
+                        <span class="skill-count1">{{Mostakbal}}%</span>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <p>Ayed</p>
+                    <div class="skill-bar skill1 skill3 wow slideInLeft animated">
+                        <span class="skill-count1">{{Ayed}}%</span>
+                    </div>
+                </div>
+                <div class="skill">
+                    <p>Manzeli</p>
+                    <div class="skill-bar skill1 skill3 wow slideInLeft animated">
+                        <span class="skill-count1">{{Manzeli}}%</span>
+                    </div>
+                </div>
+                <div class="skill">
+                    <p>Fleha</p>
+                    <div class="skill-bar skill1 skill3 wow slideInLeft animated">
+                        <span class="skill-count1">{{Fleha}}%</span>
                     </div>
                 </div>
             </div>
+            <div class="single-profile-name">
 
-            <div class="col-lg-6"> 
-                <div class="job-item">
-                    <img src="assets/img/home-1/jobs/3.png" alt="Job">
 
-                    <div class="job-inner align-items-center">
-                        <div class="job-inner-left">
-                            <h3>Senior Manager</h3>
-                            <a routerLink="/company-details">Glovibo.com</a>
-                            <ul>
-                                <li><i class="icofont-money-bag"></i> $20k - $25k</li>
-                                <li><i class="icofont-location-pin"></i> Location 210-27 Quadra, Market Street, Victoria Canada</li>
-                            </ul>
-                        </div>
-
-                        <div class="job-inner-right">
-                            <ul>
-                                <li><a routerLink="/create-account">Apply</a></li>
-                                <li><span>Intern</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="job-item ">
-                    <img src="assets/img/home-1/jobs/4.png" alt="Job">
-
-                    <div class="job-inner align-items-center">
-                        <div class="job-inner-left">
-                            <h3>Product Designer</h3>
-                            <a routerLink="/company-details">Bizotic.com</a>
-                            <ul>
-                                <li><i class="icofont-money-bag"></i> $20k - $25k</li>
-                                <li><i class="icofont-location-pin"></i> Location 210-27 Quadra, Market Street, Victoria Canada</li>
-                            </ul>
-                        </div>
-
-                        <div class="job-inner-right">
-                            <ul>
-                                <li><a routerLink="/create-account">Apply</a></li>
-                                <li><span>Part Time</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <a (click)="exportexcel()" style="cursor: pointer;">Download Data <i class="icofont-download"></i></a>
             </div>
         </div>
     </div>

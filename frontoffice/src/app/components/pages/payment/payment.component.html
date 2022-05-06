@@ -1,1 +1,63 @@
-<p>payment works!</p>
+<div class="page-title-area">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="page-title-text">
+                    <h2>Payment</h2>
+                    <ul>
+                        <li><a routerLink="/">Home</a></li>
+                        <li><i class="icofont-simple-right"></i></li>
+                        <li>Pay Bills</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="contact-form-area ptb-100">
+    <div class="container-fluid">
+        <form id="contactForm">
+            <div class="row contact-wrap">
+
+
+                    <div class="col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <input name ="beneficiary" type="text" required   placeholder="Beneficiary" id="beneficiary" class="form-control" [(ngModel)]="beneficiary"  >
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <input type="number" name="account_number" id="account_number" class="form-control" required placeholder="Beneficiary Account Number" [(ngModel)]="account_number" >
+                          </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <input type="number" name="account_id" id="account_id" required class="form-control" placeholder="Your Account Id"[(ngModel)]="account_id" >
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <input type="text" name="reference" id="reference" class="form-control" required placeholder="Reference"[(ngModel)]="reference">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-lg-12">
+                        <div class="form-group">
+                            <textarea name="number" class="form-control" id="amount" required placeholder="Amount To Pay"[(ngModel)]="payment_amount"></textarea>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12 col-lg-12">
+                        <div class="text-center">
+                            <button type="submit" class="btn contact-btn" (click)="paybills()">Pay</button>
+                        </div>
+                    </div>
+                </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="col-md-12 grid-margin" *ngFor='let o of listfeeds '>
+    <div class="card rounded">
+      <div class="card-header">
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="d-flex align-items-center">
+            <img class="img-xs rounded-circle" src="https://via.placeholder.com/37x37" alt="">
+            <div class="ms-2">
+                <p>{{o.emailFeedback}}</p>
+              <p>{{o.nameFeedback}}</p>
+
+
+
+               <p class="tx-11 text-muted">{{o.dateFeedback  | date:'yyyy-MM-dd'}}</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="card-body">
+
+        <label  >{{o.descriptionFeedback}}</label>
+      </div>
+      <div class="card-footer">
+        <div class="d-flex post-actions">
+            <p>{{o.phoneFeedback}}</p>
+
+        </div>
+      </div>
+    </div>
+  </div>

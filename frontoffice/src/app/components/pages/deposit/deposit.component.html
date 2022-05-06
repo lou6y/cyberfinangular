@@ -3,14 +3,42 @@
         <div class="d-table-cell">
             <div class="container">
                 <div class="page-title-text">
-                    <h2>DEPOSIT</h2>
+                    <h2>Deposit Money</h2>
                     <ul>
                         <li><a routerLink="/">Home</a></li>
                         <li><i class="icofont-simple-right"></i></li>
-                        <li>Job List</li>
+                        <li>Deposit</li>
                     </ul>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="contact-form-area ptb-100">
+    <div class="container-fluid">
+        <form id="contactForm">
+            <div class="row contact-wrap">
+
+                <div class="col-sm-6 col-lg-6">
+                    <div class="form-group">
+                        <input id="name" class="form-control" name ="account_id" type="number" required   placeholder="Your Account Id" [(ngModel)]="account_id">
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-6">
+                    <div class="form-group">
+                        <input  name ="amount" type="number" id="phone_number" required class="form-control" placeholder="Amout To Deposit "[(ngModel)]="amount">
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-lg-12">
+                    <div class="text-center">
+                        <button type="submit" class="btn contact-btn" (click)="deposit()">Submit</button>
+                    </div>
+
+                </div>
+            </div>
+        </form>
     </div>
 </div>

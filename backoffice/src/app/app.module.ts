@@ -16,6 +16,7 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { TransactionComponent } from './views/pages/transaction/transaction.component';
 import {RouterModule, Routes} from '@angular/router';
 import {FormsModule} from "@angular/forms";
+import { OfferComponent } from './views/pages/offers/offer/offer.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,7 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     ErrorPageComponent,
+
   ],
   imports: [
     BrowserModule,
