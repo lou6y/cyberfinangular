@@ -43,6 +43,7 @@ import {PaymentComponent} from "./components/pages/payment/payment.component";
 import {TransferComponent} from "./components/pages/transfer/transfer.component";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {NgToastModule} from "ng-angular-popup";
+import { SorteratePipe } from './_services/sorterate.pipe';
 
 @NgModule({
   declarations: [
@@ -83,6 +84,7 @@ import {NgToastModule} from "ng-angular-popup";
       WithdrawalComponent,
       PaymentComponent,
       TransferComponent,
+      SorteratePipe,
   ],
   imports: [
     BrowserModule,

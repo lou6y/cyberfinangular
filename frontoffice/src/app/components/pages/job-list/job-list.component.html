@@ -3,11 +3,11 @@
         <div class="d-table-cell">
             <div class="container">
                 <div class="page-title-text">
-                    <h2>Job List</h2>
+                    <h2>Offer List</h2>
                     <ul>
                         <li><a routerLink="/">Home</a></li>
                         <li><i class="icofont-simple-right"></i></li>
-                        <li>Job List</li>
+                        <li>Offer List</li>
                     </ul>
                 </div>
             </div>
@@ -18,197 +18,84 @@
 <section class="job-area job-area-two pt-100">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-15"  *ngFor='let o of listOffers '>
                 <div class="job-item">
                     <img src="assets/img/home-1/jobs/1.png" alt="Job">
 
                     <div class="job-inner align-items-center">
                         <div class="job-inner-left">
-                            <h3>UI/UX Designer</h3>
-                            <a routerLink="/company-details">Winbrans.com</a>
-                            <ul>
-                                <li><i class="icofont-money-bag"></i> $20k - $25k</li>
-                                <li><i class="icofont-location-pin"></i> Location 210-27 Quadra, Market Street, Victoria Canada</li>
-                            </ul>
+
+                            <h3>{{o.typeOffer}}</h3>
+                            <h6>{{o.description}}</h6>
+                             <h6>{{o.datedebut}}</h6>
+                            <h6> {{o.datefin}}</h6>
+                            <h6>Countuser : {{o.countUser}}</h6>
+                            <h6>rate: {{o.ratingAvg}}</h6>
+
+                            <div class="rating"  >
+                                <div class="stars " >
+                                    <label [ngClass]="{'gold':o.ratingAvg >=1}"  class="fa fa-star   " (click)="editOffer(o,1)" >☆</label>
+                                    <label [ngClass]="{'gold':o.ratingAvg >=2}" class="fa fa-star   " (click)="editOffer(o,2)" >☆</label>
+                                    <label [ngClass]="{'gold':o.ratingAvg >=3}" class="fa fa-star  "  (click)="editOffer(o,3)">☆</label>
+                                    <label [ngClass]="{'gold':o.ratingAvg >=4}" class="fa fa-star  "  (click)="editOffer(o,4)" >☆</label>
+                                    <label [ngClass]="{'gold':o.ratingAvg >=5}" class="fa fa-star  "   (click)="editOffer(o,5)">☆</label>
+                                </div>
+
+                            </div>
+
+
                         </div>
 
                         <div class="job-inner-right">
                             <ul>
-                                <li><a routerLink="/create-account">Apply</a></li>
-                                <li><span>Full Time</span></li>
+                                <li><a    (click)="open(mymodal1)" style="cursor: pointer;" >Apply</a></li>
+
                             </ul>
+                            <ng-template #mymodal1 let-modal1>
+                                <div class="modal-header">
+                                  <h4 class="modal-title" id="modal-basic-title" >Apply new Offer</h4>
+                                  <button type="button" class="close" aria-label="Close" (click)="modal1.dismiss('Cross click')">
+                                    <span aria-hidden="true" (click)="cancel()">×</span>
+                                  </button>
+
+                                </div>
+                                <div class="container">
+                                  <form #f="ngForm" (ngSubmit)="Apply(o,users)">
+
+
+                                    <div class="row" class="col-md-6">
+                                        <input name ="account_id" type="text" required  ngModel #a="ngModel" placeholder="Name" [(ngModel)]="users.Name" >
+                                      </div>
+                                      <div class="alert alert-danger" *ngIf="a.invalid && a.touched">the Name is a required field </div>
+
+                                      <div class="row" class="col-md-6">
+                                        <input name ="account_id" type="text" required  ngModel #b="ngModel" placeholder="Email" [(ngModel)]="users.Email" >
+                                      </div>
+                                      <div class="alert alert-danger" *ngIf="b.invalid && b.touched">the Email is a required field </div>
+
+
+
+
+
+                                    <button type="submit" class="btn btn-success" [disabled]="f.invalid" (click)="modal1.close('Save click')" >Add</button>
+                                    <button type="button" class="btn btn-info" (click)="modal1.close('Save click')" >Cancel</button>
+                                  </form>
+                                </div>
+                              </ng-template>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-6">
-                <div class="job-item">
-                    <img src="assets/img/home-1/jobs/2.png" alt="Job">
 
-                    <div class="job-inner align-items-center">
-                        <div class="job-inner-left">
-                            <h3>Android Developer</h3>
-                            <a routerLink="/company-details">Infiniza.com</a>
-                            <ul>
-                                <li><i class="icofont-money-bag"></i> $20k - $25k</li>
-                                <li><i class="icofont-location-pin"></i> Location 210-27 Quadra, Market Street, Victoria Canada</li>
-                            </ul>
-                        </div>
 
-                        <div class="job-inner-right">
-                            <ul>
-                                <li><a routerLink="/create-account">Apply</a></li>
-                                <li><span>Part Time</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-lg-6"> 
-                <div class="job-item">
-                    <img src="assets/img/home-1/jobs/3.png" alt="Job">
 
-                    <div class="job-inner align-items-center">
-                        <div class="job-inner-left">
-                            <h3>Senior Manager</h3>
-                            <a routerLink="/company-details">Glovibo.com</a>
-                            <ul>
-                                <li><i class="icofont-money-bag"></i> $20k - $25k</li>
-                                <li><i class="icofont-location-pin"></i> Location 210-27 Quadra, Market Street, Victoria Canada</li>
-                            </ul>
-                        </div>
 
-                        <div class="job-inner-right">
-                            <ul>
-                                <li><a routerLink="/create-account">Apply</a></li>
-                                <li><span>Intern</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-lg-6">
-                <div class="job-item ">
-                    <img src="assets/img/home-1/jobs/4.png" alt="Job">
 
-                    <div class="job-inner align-items-center">
-                        <div class="job-inner-left">
-                            <h3>Product Designer</h3>
-                            <a routerLink="/company-details">Bizotic.com</a>
-                            <ul>
-                                <li><i class="icofont-money-bag"></i> $20k - $25k</li>
-                                <li><i class="icofont-location-pin"></i> Location 210-27 Quadra, Market Street, Victoria Canada</li>
-                            </ul>
-                        </div>
 
-                        <div class="job-inner-right">
-                            <ul>
-                                <li><a routerLink="/create-account">Apply</a></li>
-                                <li><span>Part Time</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-lg-6">
-                <div class="job-item">
-                    <img src="assets/img/home-1/jobs/5.png" alt="Job">
-
-                    <div class="job-inner align-items-center">
-                        <div class="job-inner-left">
-                            <h3>Digital Marketer</h3>
-                            <a routerLink="/company-details">Hotelzo.com</a>
-                            <ul>
-                                <li><i class="icofont-money-bag"></i>$20k - $25k</li>
-                                <li><i class="icofont-location-pin"></i>Location 210-27 Quadra, Market Street, Victoria Canada</li>
-                            </ul>
-                        </div>
-
-                        <div class="job-inner-right">
-                            <ul>
-                                <li><a routerLink="/create-account">Apply</a></li>
-                                <li><span>Intern</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="job-item">
-                    <img src="assets/img/home-1/jobs/6.png" alt="Job">
-                    
-                    <div class="job-inner align-items-center">
-                        <div class="job-inner-left">
-                            <h3>Sales Manager</h3>
-                            <a routerLink="/company-details">Gozuto.com</a>
-                            <ul>
-                                <li><i class="icofont-money-bag"></i>$20k - $25k</li>
-                                <li><i class="icofont-location-pin"></i>Location 210-27 Quadra, Market Street, Victoria Canada</li>
-                            </ul>
-                        </div>
-
-                        <div class="job-inner-right">
-                            <ul>
-                                <li><a routerLink="/create-account">Apply</a></li>
-                                <li><span>Part Time</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="job-item">
-                    <img src="assets/img/home-1/jobs/7.png" alt="Job">
-
-                    <div class="job-inner align-items-center">
-                        <div class="job-inner-left">
-                            <h3>Web Developer</h3>
-                            <a routerLink="/company-details">Udiza.com</a>
-                            <ul>
-                                <li><i class="icofont-money-bag"></i>$20k - $25k</li>
-                                <li><i class="icofont-location-pin"></i>Location 210-27 Quadra, Market Street, Victoria Canada</li>
-                            </ul>
-                        </div>
-
-                        <div class="job-inner-right">
-                            <ul>
-                                <li><a routerLink="/create-account">Apply</a></li>
-                                <li><span>Full Time</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="job-item">
-                    <img src="assets/img/home-1/jobs/8.png" alt="Job">
-
-                    <div class="job-inner align-items-center">
-                        <div class="job-inner-left">
-                            <h3>SEO</h3>
-                            <a routerLink="/company-details">Oqota.com</a>
-                            <ul>
-                                <li><i class="icofont-money-bag"></i>$20k - $25k</li>
-                                <li><i class="icofont-location-pin"></i>Location 210-27 Quadra, Market Street, Victoria Canada</li>
-                            </ul>
-                        </div>
-
-                        <div class="job-inner-right">
-                            <ul>
-                                <li><a routerLink="/create-account">Apply</a></li>
-                                <li><span>Part Time</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </section>
