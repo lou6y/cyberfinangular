@@ -70,7 +70,7 @@ const routes: Routes = [
       },
       {
         path: 'payment',
-        loadChildren: () => import('./views/pages/payment/payment.module').then(m => m.PaymentModule)
+        loadChildren: () => import('./views/pages/payment/payment.module').then(m => m.PaymentModule )
       },
       {
         path: 'treasury',
