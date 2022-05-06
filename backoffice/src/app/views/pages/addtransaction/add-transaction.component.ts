@@ -4,6 +4,7 @@ import {NgForm} from "@angular/forms";
 import {TransactionService} from "../../../shared/Service/transaction.service";
 import {NgToastService} from "ng-angular-popup";
 import {Transaction} from "../../../shared/Model/transaction";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-transaction',
@@ -24,14 +25,15 @@ export class AddTransactionComponent implements OnInit {
   failed: string ="failed";
   transaction_type: ({ transaction_type: string } | { transaction_type: string } | { transaction_type: string } | { transaction_type: string })[];
 
-  constructor(private modalService: NgbModal,private transactionService: TransactionService, private toast: NgToastService) { }
+  constructor(private modalService: NgbModal,private transactionService: TransactionService, private toast: NgToastService) {
+ }
 
   ngOnInit(): void {
    // this.triggerClick();
     // @ts-ignore
     document.getElementById('addbuttontransaction').click();
     this.transaction= {
- 
+
       transaction_id:null,
 
       account_id:null,
@@ -96,5 +98,9 @@ export class AddTransactionComponent implements OnInit {
 
   save(f: NgForm){ //f de type ngForm
     console.log(f.value['account_id'],f.value['transaction_type'], f.value['amount'],f.value['source'], f.value['status'],f.value['reason_code'], f.value['created_at']); //pour recuperer le contunu de differents input du form dans la partie console(inspecter)
+  }
+
+  reloadpageTransaction() {
+   window.location.replace("/transaction");
   }
 }
