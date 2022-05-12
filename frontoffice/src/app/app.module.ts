@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -51,6 +51,8 @@ import { EditprofileComponent } from './components/pages/editprofile/editprofile
 import {SweetAlert2Module} from '@sweetalert2/ngx-sweetalert2';
 import { ForgotpasswordComponent } from './components/pages/forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './components/pages/resetpassword/resetpassword.component';
+
+
 
 @NgModule({
   declarations: [
@@ -111,6 +113,9 @@ import { ResetpasswordComponent } from './components/pages/resetpassword/resetpa
       NgToastModule,
       PaymentAssociationModule,
       AssociationModule,
+      ReactiveFormsModule,
+
+
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

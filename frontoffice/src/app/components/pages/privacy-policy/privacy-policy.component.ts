@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {InvesterService} from "../../../_services/invester.service";
 
 @Component({
   selector: 'app-privacy-policy',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrivacyPolicyComponent implements OnInit {
 
-  constructor() { }
+    data = {} as any;
+    constructor(public InvesterService: InvesterService) { }
 
-  ngOnInit(): void {
-  }
+    async ngOnInit(){
+        this.data = await  this.InvesterService.getAllInvesters();
+        console.log(this.data);
+    }
+
+
+    deleteInv(id:number){
+        this.InvesterService.deleteInvester(id);
+    }
 
 }

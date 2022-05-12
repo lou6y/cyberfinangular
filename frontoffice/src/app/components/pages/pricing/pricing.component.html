@@ -2,72 +2,74 @@
     <div class="d-table">
         <div class="d-table-cell">
             <div class="container">
-                <div class="page-title-text">
-                    <h2>Pricing</h2>
-                    <ul>
-                        <li><a routerLink="/">Home</a></li>
-                        <li><i class="icofont-simple-right"></i></li>
-                        <li>Pricing</li>
-                    </ul>
-                </div>
+                <br> <br> <br> <br> <br> <br>
+                <div class="row contact-wrap"><h1>Simulator</h1> </div>
+                    <br />
+                    <form [formGroup]="form" id="pass" (submit)="calcul(form)">
+                        <h5>Amount :</h5>
+                        <input
+                            matInput
+                            type="number"
+                            placeholder="Place your amount"
+                            class="in"
+                            formControlName="Montant"
+                        />
+
+                        <br />
+                        <br />
+
+                        <fieldset  (change)="modeChange($event.target.value)">
+                            <legend> <h5>Invested Funds In CyberFin :</h5></legend>
+                            <div >
+                                <input type="radio" id="1" name="1" value="1"
+                                       checked >
+                                <label for="huey">In Bank</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="2" name="1" value="2">
+                                <label for="dewey">In CyberFin</label>
+                            </div>
+                        </fieldset>
+                        <br />
+
+                        <button
+                            mat-raised-button
+                            color="primary"
+                            type="submit"
+                            class="btnCalcul"
+                        >
+                            Calculate
+                        </button>
+                    </form>
+
+                <div class="row contact-wrap"> <h2>Result :</h2> </div>
+                    <h1>{{ valeur }}</h1>
+<br> <br> <br> <br>
             </div>
         </div>
     </div>
 </div>
 
-<div class="pricing-area pt-100">
+<div class="account-area">
     <div class="container">
-        <div class="row">
+        <div class="row account-wrap">
             <div class="col-sm-6 col-lg-4">
-                <div class="pricing-item wow fadeInUp" data-wow-delay=".3s">
-                    <span>Basic</span>
-                    <h2>$30</h2>
-                    <p>Always</p>
-
-                    <ul>
-                        <li>2 Jobs Posting</li>
-                        <li>1 Renew Jobs</li>
-                        <li>2 Featured Jobs</li>
-                        <li>10 Days Duration</li>
-                    </ul>
-
-                    <a class="pricing-btn" routerLink="/">Get Started</a>
+                <div class="account-item account-last">
                 </div>
             </div>
 
             <div class="col-sm-6 col-lg-4">
-                <div class="pricing-item pricing-two wow fadeInUp" data-wow-delay=".4s">
-                    <span>Premium</span>
-                    <h2>$50</h2>
-                    <p>Always</p>
-
-                    <ul>
-                        <li>4 Jobs Posting</li>
-                        <li>2 Renew Jobs</li>
-                        <li>5 Featured Jobs</li>
-                        <li>12 Days Duration</li>
-                    </ul>
-
-                    <a class="pricing-btn" routerLink="/">Get Started</a>
+                <div class="account-item account-last">
                 </div>
             </div>
 
             <div class="col-sm-6 offset-sm-3 offset-lg-0 col-lg-4">
-                <div class="pricing-item wow fadeInUp" data-wow-delay=".5s">
-                    <span>Advance</span>
-                    <h2>$100</h2>
-                    <p>Always</p>
-                    
-                    <ul>
-                        <li>7 Jobs Posting</li>
-                        <li>3 Renew Jobs</li>
-                        <li>8 Featured Jobs</li>
-                        <li>15 Days Duration</li>
-                    </ul>
+                <div class="account-item account-last">
 
-                    <a class="pricing-btn" routerLink="/">Get Started</a>
                 </div>
             </div>
         </div>
     </div>
+    <br> <br> <br>  <br> <br> <br> <br> <br> <br> <br> <br>
 </div>
+
