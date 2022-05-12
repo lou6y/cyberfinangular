@@ -35,7 +35,7 @@ export class JoBListService {
     return this.http.post ('http://localhost:8083/SpringMVC/feedback/addFeedback', Feedback);
   }
   ExportFichier() {
-    return this.http.get<any> ('http://localhost:8083/SpringMVC/offer//export/excel',{responseType:'arraybuffer' as 'json'});
+    return this.http.get<any> ('http://localhost:8083/SpringMVC/offer/export/excel',{responseType:'arraybuffer' as 'json'});
   }
 
   SendMail(user:any) {

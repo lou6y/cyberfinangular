@@ -12,6 +12,8 @@ import {Userservice} from "../../../shared/Service/userservice";
 export class UserComponent implements OnInit {
 
   listUsers: any;
+  userDetails: any;
+  account: any;
   form: boolean = false;
   user!: User;
   closeResult!: string;
@@ -54,7 +56,26 @@ export class UserComponent implements OnInit {
       error: (e) => console.error(e)
     });
   }
-
+ getUser(username: any)
+ {
+   this.userservice.getUser(username).subscribe({
+     next: (data) => {
+       this.userDetails = data;
+       console.log(data);
+     },
+     error: (e) => console.error(e)
+   });
+ }
+  getAccount(idUser: any)
+  {
+    this.userservice.getAccount(idUser).subscribe({
+      next: (data) => {
+        this.account = data;
+        console.log(data);
+      },
+      error: (e) => console.error(e)
+    });
+  }
   addUser(user: any)
   {
     this.userservice.addUser(user).subscribe( () => { this.getAllUsers(); this.form = false; } );
@@ -63,7 +84,6 @@ export class UserComponent implements OnInit {
   editUser(idUser: any, user: User)
   {
     this.userservice.editUser(idUser, user).subscribe();
-    window.location.reload();
   }
 
   deleteUser(id: any)
@@ -94,5 +114,8 @@ export class UserComponent implements OnInit {
   cancel(){
     this.form = false;
   }
+
+  close()
+  {}
 }
 

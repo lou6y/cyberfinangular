@@ -20,10 +20,10 @@
         <div class="row">
             <div class="col-lg-15"  *ngFor='let o of listOffers '>
                 <div class="job-item">
-                    <img src="assets/img/home-1/jobs/1.png" alt="Job">
+                    <img src="assets/img/home-1/jobs/eid.png" alt="Job">
 
                     <div class="job-inner align-items-center">
-                        <div class="job-inner-left">
+                        <div class="job-inner-left m-lg-5">
 
                             <h3>{{o.typeOffer}}</h3>
                             <h6>{{o.description}}</h6>
@@ -34,11 +34,11 @@
 
                             <div class="rating"  >
                                 <div class="stars " >
-                                    <label [ngClass]="{'gold':o.ratingAvg >=1}"  class="fa fa-star   " (click)="editOffer(o,1)" >☆</label>
-                                    <label [ngClass]="{'gold':o.ratingAvg >=2}" class="fa fa-star   " (click)="editOffer(o,2)" >☆</label>
-                                    <label [ngClass]="{'gold':o.ratingAvg >=3}" class="fa fa-star  "  (click)="editOffer(o,3)">☆</label>
-                                    <label [ngClass]="{'gold':o.ratingAvg >=4}" class="fa fa-star  "  (click)="editOffer(o,4)" >☆</label>
-                                    <label [ngClass]="{'gold':o.ratingAvg >=5}" class="fa fa-star  "   (click)="editOffer(o,5)">☆</label>
+                                    <label [ngClass]="{'gold':o.ratingAvg >=1}"  class="fa fa-star   " (click)="editOffer(o,1)" ></label>
+                                    <label [ngClass]="{'gold':o.ratingAvg >=2}" class="fa fa-star   " (click)="editOffer(o,2)" ></label>
+                                    <label [ngClass]="{'gold':o.ratingAvg >=3}" class="fa fa-star  "  (click)="editOffer(o,3)"></label>
+                                    <label [ngClass]="{'gold':o.ratingAvg >=4}" class="fa fa-star  "  (click)="editOffer(o,4)" ></label>
+                                    <label [ngClass]="{'gold':o.ratingAvg >=5}" class="fa fa-star  "   (click)="editOffer(o,5)"></label>
                                 </div>
 
                             </div>

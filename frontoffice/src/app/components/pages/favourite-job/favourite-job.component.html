@@ -26,9 +26,9 @@
 
             <div class="col-lg-15"  *ngFor='let o of (listOffers | sorterate) '>
                 <div class="job-item">
-                    <img src="assets/img/home-1/jobs/1.png" alt="Job">
+                    <img src="assets/img/home-1/jobs/eid.png" alt="Job">
 
-                    <div class="job-inner align-items-center">
+                    <div class="job-inner align-items-center m-4">
                         <div class="job-inner-left">
 
                             <h3>{{o.typeOffer}} </h3>
@@ -40,11 +40,11 @@
 
                             <div class="rating"  >
                                 <div class="stars " >
-                                    <label [ngClass]="{'gold':o.ratingAvg >=1}"  class="fa fa-star   "  >☆</label>
-                                    <label [ngClass]="{'gold':o.ratingAvg >=2}" class="fa fa-star   "  >☆</label>
-                                    <label [ngClass]="{'gold':o.ratingAvg >=3}" class="fa fa-star  "  >☆</label>
-                                    <label [ngClass]="{'gold':o.ratingAvg >=4}" class="fa fa-star  "    >☆</label>
-                                    <label [ngClass]="{'gold':o.ratingAvg >=5}" class="fa fa-star  "    >☆</label>
+                                    <label [ngClass]="{'gold':o.ratingAvg >=1}"  class="fa fa-star   "  ></label>
+                                    <label [ngClass]="{'gold':o.ratingAvg >=2}" class="fa fa-star   "  ></label>
+                                    <label [ngClass]="{'gold':o.ratingAvg >=3}" class="fa fa-star  "  ></label>
+                                    <label [ngClass]="{'gold':o.ratingAvg >=4}" class="fa fa-star  "    ></label>
+                                    <label [ngClass]="{'gold':o.ratingAvg >=5}" class="fa fa-star  "    ></label>
                                 </div>
 
                             </div>

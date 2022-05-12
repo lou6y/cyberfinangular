@@ -14,73 +14,73 @@
         </div>
     </div>
 </div>
+<br> <br> <br>
 <div class="container">
     <div class="row">
-<div class="col-sm-6 col-lg-4" *ngFor='let o of listfeeds'>
-    <div class="blog-item wow fadeInUp" data-wow-delay=".3s">
-        <div class="blog-top py-8">
-            <a routerLink="/blog-details"> </a>
-<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-            <span>{{o.dateFeedback}}</span>
+        <div class="col-sm-6 col-lg-4" *ngFor='let o of listfeeds'>
+            <div class="blog-item wow fadeInUp" data-wow-delay=".3s">
+                <div class="blog-top">
+                    <a routerLink="/blog-details"> </a>
+                    <span>{{o.dateFeedback  | date:'yyyy-MM-dd'}}</span>
+                </div>
+
+                <div class="blog-bottom">
+                    <ul>
+
+                        <li> {{o.nameFeedback}}</li>
+                        <li><a [queryParams]="{id:o.idFeedback}" routerLink="/blog">Read More<i class="icofont-simple-right"></i></a></li>
+
+                        <li> {{o.emailFeedback}}</li>
+                        <li> {{o.descriptionFeedback}}</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-
-        <div class="blog-bottom py-8">
-             <ul>
-
-                <li> {{o.nameFeedback}}</li>
-                <li><a [queryParams]="{id:o.idFeedback}" routerLink="/blog">Read More<i class="icofont-simple-right"></i></a></li>
-
-                <li> {{o.emailFeedback}}</li>
-                <li> {{o.descriptionFeedback}}</li>
-            </ul>
-        </div>
-    </div>
-</div>
     </div>
 </div>
 
 <form #f="ngForm" (ngSubmit)="PostComment(Feedback)">
 
-<div class="blog-details-area ptb-100">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="blog-details-item">
+    <div class="blog-details-area ptb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="blog-details-item">
 
-                    <div class="blog-details-form">
-                        <h3>Drop Your Comment</h3>
+                        <div class="blog-details-form">
+                            <h3>Drop Your Comment</h3>
 
 
                             <div class="form-group">
                                 <input type="text" name="name" id="name" class="form-control" required  ngModel #a="ngModel"   [(ngModel)]="Feedback.nameFeedback"   placeholder="Your Name">
                             </div>
-                            <div class="alert alert-danger" *ngIf="a.invalid && a.touched">the id is a required field </div>
+                            <div class="alert alert-danger" *ngIf="a.invalid && a.touched">Please Type your Name  </div>
 
                             <div class="form-group">
                                 <input type="email" name="email" id="email" class="form-control"    ngModel #b="ngModel"   [(ngModel)]="Feedback.emailFeedback"required placeholder="Your Email">
                             </div>
-                            <div class="alert alert-danger" *ngIf="b.invalid && b.touched">the id is a required field </div>
+                            <div class="alert alert-danger" *ngIf="b.invalid && b.touched">please type your Email</div>
 
                             <div class="form-group">
                                 <input type="text" name="phone_number" id="phone_number"   class="form-control"required  ngModel #c="ngModel"   [(ngModel)]="Feedback.phoneFeedback" placeholder="Your Phone">
                             </div>
-                            <div class="alert alert-danger" *ngIf="c.invalid && c.touched">the id is a required field </div>
+                            <div class="alert alert-danger" *ngIf="c.invalid && c.touched">please type your phone number </div>
 
                             <div class="form-group">
                                 <textarea name="message" class="form-control" id="message" cols="30" rows="8"   ngModel #d="ngModel"   [(ngModel)]="Feedback.descriptionFeedback" required placeholder="Your Message"></textarea>
                             </div>
-                            <div class="alert alert-danger" *ngIf="d.invalid && d.touched">the id is a required field </div>
+                            <div class="alert alert-danger" *ngIf="d.invalid && d.touched">please leave a feedback</div>
 
                             <div class="text-left">
                                 <button type="submit"  [disabled]="f.invalid"  class="btn blog-details-btn">Post Your Comment</button>
                             </div>
 
+                        </div>
                     </div>
                 </div>
+
+
             </div>
-
-
         </div>
     </div>
-</div>
 </form>

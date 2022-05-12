@@ -21,16 +21,15 @@
             <div class="col-lg-8">
                 <div class="blog-details-item">
                     <div class="blog-details-img">
-                        <img src="assets/img/blod-details/1.jpg" alt="Blog Details">
 
                         <ul>
-                            <li><i class="icofont-calendar"></i>{{blog.dateFeedback }}</li>
+                            <li><i class="icofont-calendar"></i>{{blog.dateFeedback  | date:'yyyy-MM-dd'}}</li>
                             <li><i class="icofont-user-alt-7"></i><a routerLink="/blog">{{blog.nameFeedback}}</a></li>
                             <li><i class="icofont-user-alt-7"></i><a routerLink="/blog">{{blog.emailFeedback}}</a></li>
 
                         </ul>
 
-                         <p> {{blog.descriptionFeedback}}</p>
+                        <p> {{blog.descriptionFeedback}}</p>
                     </div>
 
                     <div class="blog-details-social">

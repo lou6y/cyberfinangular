@@ -6,7 +6,7 @@ import { HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class associationService {
-  readonly API_URL = 'http://localhost:8081';
+  readonly API_URL = 'http://localhost:8083/SpringMVC/';
 
   constructor(private httpClient: HttpClient) { }
 

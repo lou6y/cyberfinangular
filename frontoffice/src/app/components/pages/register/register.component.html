@@ -99,13 +99,14 @@
       <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
         Signup failed!<br />{{ errorMessage }}
       </div>
+        <div class="login-sign-in">
+            <ul>
+                <li>You already have an account ?</li>
+                <li><a routerLink="/login">Log In Here</a></li>
+            </ul>
+        </div>
     </form>
-      <div class="login-sign-in">
-      <ul>
-          <li>You already have an account ?</li>
-          <li><a routerLink="/login">Log In Here</a></li>
-      </ul>
-      </div>
+
     <div class="alert alert-success" *ngIf="isSuccessful">
       Your registration is successful!
     </div>

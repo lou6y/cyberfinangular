@@ -6,16 +6,22 @@ import {FormsModule} from "@angular/forms";
 import {FeahterIconModule} from "../../core/feather-icon/feather-icon.module";
 import {NgbDatepickerModule, NgbDropdownModule} from "@ng-bootstrap/ng-bootstrap";
 import {NgApexchartsModule} from "ng-apexcharts";
+import {SweetAlert2Module} from "@sweetalert2/ngx-sweetalert2";
+import { StatisticsComponent } from './statistics/statistics.component';
 
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'list',
     component: UserComponent
+  },
+  {
+    path: 'statistics',
+    component: StatisticsComponent
   }
 ]
 @NgModule({
-  declarations: [UserComponent],
+  declarations: [UserComponent, StatisticsComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -23,7 +29,8 @@ const routes: Routes = [
     FeahterIconModule,
     NgbDropdownModule,
     NgbDatepickerModule,
-    NgApexchartsModule
+    NgApexchartsModule,
+    SweetAlert2Module.forRoot()
   ]
 })
 export class UsermoduleModule { }

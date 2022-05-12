@@ -47,6 +47,10 @@ import {PaymentAssociationModule} from "./components/pages/payment-association/p
 import {AssociationModule} from "./components/pages/association/association.module";
 
 import { SorteratePipe } from './_services/sorterate.pipe';
+import { EditprofileComponent } from './components/pages/editprofile/editprofile.component';
+import {SweetAlert2Module} from '@sweetalert2/ngx-sweetalert2';
+import { ForgotpasswordComponent } from './components/pages/forgotpassword/forgotpassword.component';
+import { ResetpasswordComponent } from './components/pages/resetpassword/resetpassword.component';
 
 @NgModule({
   declarations: [
@@ -91,11 +95,17 @@ import { SorteratePipe } from './_services/sorterate.pipe';
 
 
 
+    BlogComponent,
+    EditprofileComponent,
+    ForgotpasswordComponent,
+    ResetpasswordComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
       FormsModule,
+      HttpClientModule,
+      SweetAlert2Module.forRoot(),
       HttpClientModule,
       NgbModule,
       NgToastModule,
