@@ -5,6 +5,15 @@ export const MENU: MenuItem[] = [
   {
     label: 'Web Apps',
     isTitle: true
+  },{
+    label: 'Users',
+    icon: 'users',
+    subItems: [
+      {
+        label: 'UsersList',
+        link: '/users/list',
+      }
+    ]
   },
   {
     label: 'Email',
