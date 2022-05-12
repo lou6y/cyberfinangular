@@ -6,7 +6,7 @@ export interface Fav {
     datedebut: any;
     datefin: any;
     countUser: any;
-
+    ratupdate:any;
 
 
   }

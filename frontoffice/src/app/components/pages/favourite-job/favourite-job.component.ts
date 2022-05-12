@@ -20,6 +20,7 @@ export class FavouriteJobComponent implements OnInit {
    Affrah=0;
    Manzeli=0;
    Fleha=0;
+test=5;
 
   constructor(private offerService: JoBListService, private modalService: NgbModal) { }
 
@@ -48,33 +49,34 @@ export class FavouriteJobComponent implements OnInit {
     this.offerService.findAllfav().subscribe(
       res=>{
         this.listOffers=res;
+        console.log(res);
         for (var _i = 0; _i < res.length; _i++) {
           if(this.listOffers[_i].typeOffer=="Marhaba")
           {
-              this.Marhaba=this.Marhaba+this.listOffers[_i].countUser;
+              this.Marhaba=this.Marhaba+this.listOffers[_i].ratupdate;
           }
       else if(this.listOffers[_i].typeOffer=="Mostakbal")
           {
-            this.Mostakbal= this.Mostakbal+this.listOffers[_i].countUser;
+            this.Mostakbal= this.Mostakbal+this.listOffers[_i].ratupdate;
           }
           else if(this.listOffers[_i].typeOffer=="Ayed")
           {
-            this.Ayed=this.Ayed+this.listOffers[_i].countUser;
+            this.Ayed=this.Ayed+this.listOffers[_i].ratupdate;
 
           }
           else if(this.listOffers[_i].typeOffer=="Affrah")
           {
-            this.Affrah=this.Affrah+this.listOffers[_i].countUser;
+            this.Affrah=this.Affrah+this.listOffers[_i].ratupdate;
 
           }
           else if(this.listOffers[_i].typeOffer=="Manzeli")
           {
-            this.Manzeli=this.Manzeli+this.listOffers[_i].countUser;
+            this.Manzeli=this.Manzeli+this.listOffers[_i].ratupdate;
 
           }
           else if(this.listOffers[_i].typeOffer=="Fleha")
           {
-            this.Fleha=this.Fleha+this.listOffers[_i].countUser;
+            this.Fleha=this.Fleha+this.listOffers[_i].ratupdate;
 
           }
         }

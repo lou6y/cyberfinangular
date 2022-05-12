@@ -51,12 +51,12 @@ export class JobListComponent implements OnInit {
       description:o.description,
       datedebut: o.datedebut,
       datefin: o.datefin,
-      countUser: o.countUser,
+      countUser: o.countUser+1,
     }
 
     console.log(modif)
     this.offerService.update(modif).subscribe();
-    //window.location.reload();
+    window.location.reload();
    }
   Apply(o:any,x:any)
   {
@@ -67,7 +67,8 @@ export class JobListComponent implements OnInit {
       description:o.description,
       datedebut: o.datedebut,
       datefin: o.datefin,
-      countUser: o.countUser+1,
+      countUser: o.countUser,
+        ratupdate:o.ratupdate+1
 
     }
       var user= {
@@ -87,7 +88,7 @@ export class JobListComponent implements OnInit {
     this.offerService.SendMail(user).subscribe();
     this.offerService.update(modif).subscribe();
 
-    //window.location.reload();
+    window.location.reload();
 
   }
   open(content: any) {

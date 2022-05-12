@@ -73,6 +73,7 @@ export class OfferComponent implements OnInit {
       datedebut: o.datedebut,
       datefin: o.datefin,
       countUser: 0,
+      ratupdate:0
     }
     this.offerService.add(Addoffer).subscribe(()=> {
       this.getOffers();
