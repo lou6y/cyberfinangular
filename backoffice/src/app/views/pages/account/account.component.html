@@ -1,0 +1,131 @@
+<div class="row">
+  <div class="row">
+
+
+    <! SEARCH -->
+
+    <div class="input-group">
+      <div class="input-group-text">
+        <i class="feather icon-search"></i>
+      </div>
+      <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
+    </div>
+
+    <div class="col-md-12">
+      <br>
+      <button class="btn btn-round btn-sm btn-success" style="display: none" (click)="open(mymodal1)">Add new Account</button>
+      <br><br>
+
+      <ng-template #mymodal1 let-modal1>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title" >Add new Account</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal1.dismiss('Cross click')">
+            <span aria-hidden="true" (click)="cancel()">×</span>
+          </button>
+
+        </div>
+        <div class="container">
+          <form #f="ngForm" (ngSubmit)="addAccount(account)">
+            <div class="row" class="col-md-6">
+              <input name ="account_id" type="number" required  ngModel #a="ngModel" placeholder="Account Id" [(ngModel)]="account.id" >
+            </div>
+            <div class="alert alert-danger" *ngIf="a.invalid && a.touched">the account id is a required field </div>
+
+
+            <div class="row" class="col-md-6">
+              <input name ="amount" type="number" required  ngModel #am="ngModel" placeholder="Amount"[(ngModel)]="account.balance">
+            </div>
+            <div class="alert alert-danger" *ngIf="am.invalid && am.touched">balance is a required field </div>
+
+
+
+
+            <br>
+            <button type="submit" class="btn btn-success" [disabled]="f.invalid" (click)="modal1.close('Save click')" >Add</button>
+            <button type="button" class="btn btn-info" (click)="modal1.close('Save click')" >Cancel</button>
+
+          </form>
+        </div>
+      </ng-template>
+      <div >
+
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-baseline mb-2">
+              <h6 class="card-title mb-0">Accounts List</h6>
+              <div ngbDropdown class="mb-2">
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table table-hover mb-0">
+                <thead>
+
+                <th class="pt-0" >account_id</th>
+
+                </thead>
+                <tbody>
+                <tr *ngFor='let t of listAccounts| filter:term'>
+
+                  <td>{{t.id}} </td>
+
+                  <td> <span class="badge bg-primary"> {{t.balance}} </span> </td>
+
+                  <td><button type="button" class="btn btn-outline-primary"
+                              (click)="open(mymodal)">edit</button>
+                    <ng-template #mymodal let-modal>
+                      <div class="modal-header">
+                        <h4 class="modal-title" >Edit</h4>
+                        <button type="button" class="close" aria-label="Close"
+                                (click)="modal.dismiss('Cross click')">
+                          <span aria-hidden="true" (click)="cancel()">×</span>
+
+                        </button>
+
+                      </div>
+                      <div>
+                        <form >
+                          <div class="modal-body">
+
+
+                            <div class="row" class="col-md-5">
+                              <label>Account Id</label>
+                              <input type="number" ngModel [(ngModel)]="t.id" [ngModelOptions]="{standalone : true}" />
+                            </div>
+
+
+
+                            <div class="row" class="col-md-5">
+                              <label>Balance</label>
+                              <input type="number" [(ngModel)]="t.balance" [ngModelOptions]="{standalone : true}" />
+                            </div>
+
+
+
+                          </div>
+
+                          <div class="modal-footer">
+
+                            <button type="button" class="btn btn-info" (click)="modal.close('Save click')" (click)="cancel()">Cancel</button>
+                            <button class="btn btn-success"(click)="editAccount(t)" (click)="modal.close('Save click')">Validate</button>
+                          </div>
+                        </form>
+                      </div>
+                    </ng-template>
+                    <button type="button" class="btn btn-outline-danger"
+                            (click)="deleteAccount(t.account_id)">delete</button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

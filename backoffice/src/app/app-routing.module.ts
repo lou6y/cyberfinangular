@@ -90,6 +90,11 @@ const routes: Routes = [
     {path : 'feedback',
     loadChildren: () => import('./views/pages/feddback/feddback.module').then(m => m.FeddbackModule)
   },
+      {path : 'account',
+        loadChildren: () => import('./views/pages/account/account.module').then(m => m.AccountModule)
+      },
+
+
       { path: '', redirectTo: 'transaction', pathMatch: 'full' },
       // { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
