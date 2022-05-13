@@ -16,6 +16,17 @@ export const MENU: MenuItem[] = [
     ]
   },
   {
+    label: 'Loan',
+    icon: 'home',
+    subItems: [
+      {
+        label: 'Loan',
+        link: '/users/list',
+      }
+    ]
+  },
+
+  {
     label: 'Email',
     icon: 'mail',
     subItems: [
