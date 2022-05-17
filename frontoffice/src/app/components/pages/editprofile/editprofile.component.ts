@@ -48,6 +48,7 @@ export class EditprofileComponent implements OnInit {
             },
             error: (e) => console.error(e)
         });
+
     }
     editUser(idUser: any, user: User)
     {
@@ -56,5 +57,14 @@ export class EditprofileComponent implements OnInit {
           //  .then(() => {
             //    window.location.reload();
             // });
+        this.reloadpageProfile();
+    }
+
+
+    reloadpageProfile() {
+        setTimeout(
+            function(){
+                window.location.replace("/single-profile");
+            }, 3000);
     }
 }
