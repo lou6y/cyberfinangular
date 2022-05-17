@@ -6,42 +6,42 @@ import { HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class association_paymentService {
-  readonly API_URL = 'http://localhost:8081';
+  readonly API_URL = 'http://localhost:8083/SpringMVC';
 
   constructor(private httpClient: HttpClient) { }
 
   getPayments(){
-    return this.httpClient.get(`${this.API_URL}/CyberFin/payement/retrieve-all-payments`)
+    return this.httpClient.get('http://localhost:8083/SpringMVC/payement/retrieve-all-payments')
   }
   addPayment(id : any) {
-    return this.httpClient.post(`${this.API_URL}/CyberFin/payement/add-payment`, id)
+    return this.httpClient.post('http://localhost:8083/SpringMVC/payement/add-payment', id)
   }
   editPayment(payment : any){
-    return this.httpClient.put(`${this.API_URL}/CyberFin/payement/modify-payment`, payment)
+    return this.httpClient.put('http://localhost:8083/SpringMVC/payement/modify-payment', payment)
   }
   deletePayment(id : any){
-    return  this.httpClient.delete(`${this.API_URL}/CyberFin/payement/remove-payment/${id}`)
+    return  this.httpClient.delete('http://localhost:8083/SpringMVC/payement/remove-payment${id}')
   }
   getReservationP(idA:any){
-    return this.httpClient.get(`${this.API_URL}/CyberFin/payement/retrieve-all-reservation,${idA}`)
+    return this.httpClient.get('http://localhost:8083/SpringMVC/payement/retrieve-all-reservation,${idA}')
   }
   addReseration(idA:any,idP:any,idC:any) {
-    return this.httpClient.post(`${this.API_URL}/CyberFin/payement/add-reservation`,idA,idP)
+    return this.httpClient.post('$http://localhost:8083/SpringMVC/payement/add-reservation',idA,idP)
   }
   Payer(idP:any){
-    return this.httpClient.post(`${this.API_URL}/CyberFin/payement/pay`, idP)
+    return this.httpClient.post('http://localhost:8083/SpringMVC/payement/pay', idP)
   }
   Penaliser(idP:any){
-    return this.httpClient.put(`${this.API_URL}/CyberFin/payement/penality`, idP)
+    return this.httpClient.put('http://localhost:8083/SpringMVC/payement/penality', idP)
   }
   getNonPayers(){
-    return this.httpClient.get(`${this.API_URL}/CyberFin/payement/harrab`)
+    return this.httpClient.get('http://localhost:8083/SpringMVC/payement/harrab')
   }
   getRisqueLevel(idC:any){
-    return this.httpClient.get(`${this.API_URL}/CyberFin/payement/risque`,idC)
+    return this.httpClient.get('http://localhost:8083/SpringMVC/payement/risque',idC)
   }
   getSusceptible(){
-    return this.httpClient.get(`${this.API_URL}/CyberFin/payement/suseptible`)
+    return this.httpClient.get('http://localhost:8083/SpringMVC/payement/suseptible')
   }
 
 }

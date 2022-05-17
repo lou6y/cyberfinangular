@@ -6,24 +6,24 @@ import { HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class associationService {
-  readonly API_URL = 'http://localhost:8083/SpringMVC/';
+  readonly API_URL = 'http://localhost:8083/SpringMVC';
 
   constructor(private httpClient: HttpClient) { }
 
   getAllAssociation() {
-    return this.httpClient.get(`${this.API_URL}/CyberFin/association/retrieve-all-association`)
+    return this.httpClient.get('http://localhost:8083/SpringMVC/association/retrieve-all-association')
   }
   addAssociation(association : any) {
-    return this.httpClient.post(`${this.API_URL}/CyberFin/association/add-association`, association)
+    return this.httpClient.post('http://localhost:8083/SpringMVC/association/add-association', association)
   }
   editAssociation(association : any){
-    return this.httpClient.put(`${this.API_URL}/CyberFin/association/modify-association`, association)
+    return this.httpClient.put('http://localhost:8083/SpringMVC/association/modify-association', association)
   }
   deleteAssociation(idAssociation : any){
-    return  this.httpClient.delete(`${this.API_URL}/CyberFin/association/remove-association/${idAssociation}`)
+    return  this.httpClient.delete('http://localhost:8083/SpringMVC/association/remove-association/${idAssociation}')
   }
  getRocommandation(id:any){
-     return this.httpClient.get(`${this.API_URL}/CyberFin/association/retrieve-associationScore`,id)
+     return this.httpClient.get('http://localhost:8083/SpringMVC/association/retrieve-associationScore',id)
  }
 
 }

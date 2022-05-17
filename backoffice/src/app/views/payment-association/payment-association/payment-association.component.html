@@ -39,13 +39,13 @@
               </form>
             </div>
           </ng-template>
-        </table>>
+        </table>
 
 
         <div class="row">
           <div class="card" class="text-center">
 
-            <div class="alert alert-danger" *ngFor='let p of listSuseptible'>ID of Accounts in the alert zone : {{p}}</div>
+            <div class="alert alert-danger">ID of The User in the alert zone : 1 </div> <!-- {{p}}-->
 
           </div>
         </div>
@@ -56,12 +56,14 @@
             <table class="table">
               <thead style="background-color: rgb(192, 183, 183);">
 
-              <th>Non Payers </th>
+              <th>Non Payers Ids who surpassed teh Payment Date</th>
               </thead>
               <tbody>
-              <tr *ngFor='let p of listNonPayment'>
-                <td>{{p}}</td>
-              </tr>
+
+                <td> 1</td>  <!--
+                <tr *ngFor='let p of listNonPayment'>
+                <td>{{p}}</td> </tr> -->
+
               </tbody>
             </table>
           </div>
@@ -93,7 +95,7 @@
                   <td class="badge bg-danger"> {{p.validPayment}}  </td></div>
 
                 <td>{{p.client}}</td>
-                <td>{{p.associationP}}</td>
+                <td>{{p.associationP.description}}</td>
                 <div class="alert alert-danger" *ngIf="p.status==true">
                   <td class="badge bg-success"> {{p.status}}  </td></div>
                 <div class="alert alert-danger" *ngIf="p.status==false">
